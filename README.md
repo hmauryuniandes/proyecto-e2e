@@ -19,10 +19,10 @@
 
     - editar el archivo kraken/properties.json
     - configure los valores de USERNAME1 y PASSWORD1 con las credenciales de ghost validas.
-    - en la carpeta Kraken/feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
+    - en la carpeta kraken/feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt que desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
     - abrir la terminal
     - ingresar a la carpeta kraken
-    - Iniciar proyecto usando el comando **kraken-node run**.
+    - iniciar el proyecto usando el comando **kraken-node run**.
 
 ## Ejecucion de Cypress
     
