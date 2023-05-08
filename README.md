@@ -11,23 +11,30 @@
     
     - Cypress versión 12.9.0
 
+    - Tener creado un usuario y sitio en ghost 
+
+    - Ghost debe estar ejecutado
+
 ## Ejecución de Kraken:
 
-    - En la carpeta feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
-    - Abrir la terminal
+    - configure los valores de USERNAME1 y PASSWORD1 con las credenciales de ghost validas.
+    - en la carpeta Kraken/feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
+    - abrir la terminal
     - ingresar a la carpeta kraken
     - Iniciar proyecto usando el comando **kraken-node run**.
 
 ## Ejecucion de Cypress
     
-    - Abrir la terminal
+    - edite el archivo cypress/cypress/e2e/ghost/login/login.js
+    - cambie los valores de las constantes username y password con las credenciales de ghost validas.
+    - abrir la terminal
     - ingresar a la carpeta cypress
     - correr el comando npm install si aun no lo ha hecho.
-    - Iniciar proyecto usando el comando **cypress open**.
-    - Seleccionar pruebas E2E.
-    - Seleccionar navegador.
-    - En el menú lateral seleccionar la opción specs, ahí vera todos los escenarios de pruebas.
-    - Ejecute uno a uno los escenarios.
+    - iniciar proyecto usando el comando **cypress open**.
+    - seleccionar pruebas E2E.
+    - seleccionar navegador y ejecutar el navegador.
+    - en el menú lateral seleccionar la opción specs, ahí vera todos los escenarios de pruebas.
+    - ejecute uno a uno los escenarios.
 
 ## Escenarios de prueba
 
