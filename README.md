@@ -17,6 +17,7 @@
 
 ## Ejecución de Kraken:
 
+    - editar el archivo kraken/properties.json
     - configure los valores de USERNAME1 y PASSWORD1 con las credenciales de ghost validas.
     - en la carpeta Kraken/feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
     - abrir la terminal
@@ -69,8 +70,7 @@
 
 ### Profile 
     - ES018: Editar profile, cambia nombre del usuario y validar que hayas sido cambiado.
-    - ES019: Editar profile y cambia password luego probar el nuevo password para posteriormente restaurar el password anterior.
 
 ### configuración/Diseño 
-    - ES020: Configurar un nuevo elemento de menu con una página nueva y probar navegación en el sitio para el nuevo elemento.
-    - ES021: Configurar un nuevo elemento de menu secundario con una página nueva y probar navegación en el sitio para el nuevo elemento.
+    - ES019: Configurar un nuevo elemento de menu con una página nueva y probar navegación en el sitio para el nuevo elemento.
+    - ES020: Configurar un nuevo elemento de menu secundario con una página nueva y probar navegación en el sitio para el nuevo elemento.
