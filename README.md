@@ -1,5 +1,12 @@
 # proyecto-e2e
 
+## integrantes: 
+
+    - Monica Alejandra Muñoz Beltran (ma.munozb1@uniandes.edu.co)
+    - Humberto Enrique Maury Maury (h.maury@uniandes.edu.co)
+    - Daniel Santiago Rondon Cardenas (ds.rondon@uniandes.edu.co)
+    - Fredy Antonio Alarcon Fonseca (f.alarconf@uniandes.edu.co)
+
 ## prerrequisitos
 
     - Ghost versión 3.41.1, usar el siguiente comando para instalar dicha versión: 
