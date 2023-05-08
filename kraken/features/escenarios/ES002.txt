@@ -1,0 +1,15 @@
+@user1 @web
+Scenario: hacer login y luego ir al menu para hacer logout
+  Given I navigate to page "http://localhost:2368/ghost"
+  And I wait for 1 seconds
+  When I enter email "<USERNAME1>"
+  And I wait for 1 seconds
+  And I enter password "<PASSWORD1>"
+  And I wait for 1 seconds
+  And I click sign in
+  And I wait for 1 seconds
+  And I expand profile options
+  And I wait for 1 seconds
+  And I click on logout
+  And I wait for 1 seconds
+  Then I am redirected to login page

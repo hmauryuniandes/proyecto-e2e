@@ -1,0 +1,33 @@
+@user1 @web
+Scenario: hacer login, crear y eliminar un post
+  Given I navigate to page "http://localhost:2368/ghost"
+  And I wait for 1 seconds
+  When I enter email "<USERNAME1>"
+  And I wait for 1 seconds
+  And I enter password "<PASSWORD1>"
+  And I wait for 1 seconds
+  And I click sign in
+  And I wait for 1 seconds
+  And I click new post
+  And I wait for 1 seconds
+  And I enter name post "<POST3>"
+  And I wait for 1 seconds
+  And I enter content post "<CONPOST3>"
+  And I wait for 1 seconds
+  And I expand publish post
+  And I wait for 2 seconds
+  And I click publish post
+  And I wait for 5 seconds
+  And I click post
+  And I wait for 2 seconds
+  Then I search post "<POST3>" in the list
+  And I wait for 2 seconds
+  When I expand setting post
+  And I wait for 2 seconds
+  And I scroll to buttom
+  And I wait for 2 seconds
+  And I click delete post
+  And I wait for 2 seconds
+  And I click to confirm delete post
+  And I wait for 2 seconds
+  Then I am redirected to posts list

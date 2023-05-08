@@ -1,0 +1,1 @@
+Feature: Pruebas ghost
