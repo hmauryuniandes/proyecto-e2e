@@ -353,6 +353,11 @@ When('And I user click on upload image', async function () {
     return await element.click();
 });
 
+When('I click next', async function() {
+    let element = await this.driver.$('button[type="submit"]');
+    return await element.click();
+});
+
 When('I Navigate to pages', async function() {
     let element = await this.driver.$('a[href="#/pages/"]');
     return await element.click();
