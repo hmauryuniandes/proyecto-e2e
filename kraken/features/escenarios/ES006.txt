@@ -1,0 +1,25 @@
+Feature: Crear pagina nueva
+
+@user11 @web
+Scenario: Crear pagina nueva
+  Given I navigate to page "http://localhost:2368/ghost"
+  And I wait for 1 seconds
+  And I enter email "<USERNAME1>"
+  And I wait for 1 seconds
+  And I enter password "<PASSWORD1>"
+  And I wait for 1 seconds
+  And I click next
+  And I wait for 4 seconds
+  And I Navigate to pages
+  And I wait for 1 seconds
+  When I create a new page
+  And I wait for 1 seconds
+  And I write a title
+  And I wait for 1 seconds
+  And I write a message
+  And I wait for 1 seconds
+  And I publish the page
+  And I wait for 3 seconds
+  Then I confim if the page is published
+
+  

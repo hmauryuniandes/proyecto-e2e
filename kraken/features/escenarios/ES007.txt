@@ -1,0 +1,24 @@
+Feature: Editar pagina
+
+  @user12 @web
+Scenario: Editar pagina
+  Given I navigate to page "http://localhost:2368/ghost"
+  And I wait for 1 seconds
+  And I enter email "<USERNAME1>"
+  And I wait for 1 seconds
+  And I enter password "<PASSWORD1>"
+  And I wait for 1 seconds
+  And I click next
+  And I wait for 4 seconds
+  And I Navigate to pages
+  And I wait for 1 seconds
+  When I click on first page
+  And I wait for 1 seconds
+  And I modify the title
+  And I wait for 1 seconds
+  And I press update button
+  And I wait for 1 seconds
+  And I confirm update
+  Then I validate the update
+
+  
