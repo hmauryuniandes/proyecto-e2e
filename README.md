@@ -13,7 +13,7 @@
 
 ## Ejecución de Kraken:
 
-    - En la carpeta feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie el que desee ejecutar en el archivo my_first.feature dejando las lineas de codigo ahi presente.
+    - En la carpeta feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
     - Abrir la terminal
     - ingresar a la carpeta kraken
     - Iniciar proyecto usando el comando **kraken-node run**.
