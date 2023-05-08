@@ -1,0 +1,26 @@
+Feature: Eliminar pagina
+
+  @user13 @web
+Scenario: Eliminar pagina
+  Given I navigate to page "http://localhost:2368/ghost"
+  And I wait for 1 seconds
+  And I enter email "<USERNAME1>"
+  And I wait for 1 seconds
+  And I enter password "<PASSWORD1>"
+  And I wait for 1 seconds
+  And I click next
+  And I wait for 4 seconds
+  And I Navigate to pages
+  And I wait for 1 seconds
+  When I click on first page
+  And I wait for 1 seconds
+  And I click on settings
+  And I wait for 1 seconds
+  And I scroll to buttom
+  And I wait for 1 seconds
+  And I click delete button
+  And I wait for 1 seconds
+  And I confirm I want to delete
+  Then I validate the delete
+
+  
