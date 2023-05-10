@@ -27,10 +27,6 @@ Scenario: Crear menu pagina secundaria
   And I wait for 1 seconds
   And I write the path to the second menu
   And I wait for 1 seconds
-  And I click on last plus
-  And I wait for 1 seconds
   And I primary menu save changes 
   Then I check changes were saved
-  
-
   
