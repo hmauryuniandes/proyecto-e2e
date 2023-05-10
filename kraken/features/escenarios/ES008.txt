@@ -21,6 +21,7 @@ Scenario: Eliminar pagina
   And I click delete button
   And I wait for 1 seconds
   And I confirm I want to delete
+  And I wait for 2 seconds
   Then I validate the delete
 
   

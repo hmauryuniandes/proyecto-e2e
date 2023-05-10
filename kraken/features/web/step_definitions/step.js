@@ -385,8 +385,8 @@ When('I publish the page', async function(){
 })
 
 Then('I confim if the page is published', async function(){
-    /*let element = await this.driver.$('div.flex > span > div');
-    return assert.equal("Published", element.getText());*/
+    let element = await this.driver.$('div.flex > span > div');
+    return assert.equal("Published", (await element.getText()));
 })
 
 When('I click on first page', async function(){
@@ -408,18 +408,15 @@ When('I confirm update', async function(){
 })
 
 Then('I validate the update', async function(){
-   /* let element = await this.driver.$(' aside > article > .gh-notification-content > .gh-notification-title');
-    return assert.equal("Updated", element.getText());*/
-})
+    let element = await this.driver.$('span.gh-notification-title');
+    console.log((await element.getText()).trim());
+    assert.equal((await element.getText()).trim(), "Updated");
+ });
 
 When('I click on settings', async function(){
     await this.driver.$('button.post-settings').click();
 })
 
-When('I scroll to buttom', async function () {
-    let element = await this.driver.$('.settings-menu-content');
-    return await element.scrollIntoView({ block: "end" });
-});
 
 When('I click delete button', async function(){
     await this.driver.$('button.settings-menu-delete-button').click();
@@ -430,7 +427,8 @@ When('I confirm I want to delete', async function(){
 })
 
 Then('I validate the delete', async function(){
-    
+    let actualUrl = (await this.driver.executeScript('return window.location.href',[]));
+    assert.strictEqual(actualUrl, "http://localhost:2368/ghost/#/pages");
 })
 
 When('I navigate to config', async function() {
@@ -459,7 +457,8 @@ When('I primary menu save changes', async function() {
 });
 
 Then('I check changes were saved', async function(){
-    
+    let element = (await this.driver.$(('button.gh-btn-green')))
+    assert.ok(await element.isDisplayed(), 'Button is not displayed');
 })
 
 

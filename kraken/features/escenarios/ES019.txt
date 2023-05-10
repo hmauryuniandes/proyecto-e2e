@@ -27,8 +27,6 @@ Scenario: Crear menu pagina principal
   And I wait for 1 seconds
   And I write the path to the primary menu
   And I wait for 1 seconds
-  And I click on plus
-  And I wait for 1 seconds
   And I primary menu save changes 
   Then I check changes were saved
   
