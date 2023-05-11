@@ -15,7 +15,7 @@ export class Page {
   };
 
   when_user_type_title_and_content = () => {
-    cy.get('textarea[placeholder="Page Title"]').type("Nueva Pagina");
+    cy.get('textarea[placeholder="Page title"]').type("Nueva Pagina");
     cy.get(".koenig-editor__editor")
       .find('p[data-koenig-dnd-droppable="true"]')
       .invoke("html", "Esta es mi primera pagina");
@@ -43,7 +43,7 @@ export class Page {
   };
 
   then_page_was_published = () => {
-    cy.get("div.flex > span > div")
+    cy.get("span.gh-notification-title")
       .invoke("text")
       .then((text) => {
         console.log(text.trim());
