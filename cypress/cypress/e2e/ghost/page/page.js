@@ -15,7 +15,7 @@ export class Page {
   };
 
   when_user_type_title_and_content = () => {
-    cy.get('textarea[placeholder="Page title"]').type("Nueva Pagina");
+    cy.get('textarea[placeholder="Page Title"]').type("Nueva Pagina");
     cy.get(".koenig-editor__editor")
       .find('p[data-koenig-dnd-droppable="true"]')
       .invoke("html", "Esta es mi primera pagina");
@@ -42,8 +42,13 @@ export class Page {
     ).click();
   };
 
+  when_user_get_back_from_the_page = () =>{
+    cy.get('a[href="#/pages/"]').click();
+    cy.wait(100);
+  }
+
   then_page_was_published = () => {
-    cy.get("span.gh-notification-title")
+    cy.get("div.flex > span > div")
       .invoke("text")
       .then((text) => {
         console.log(text.trim());

@@ -25,6 +25,7 @@ describe("Testion new menus", () => {
     _pageObject.when_user_click_on_new_page();
     _pageObject.when_user_type_title_and_content();
     _pageObject.when_user_publish_page();
+    _pageObject.when_user_get_back_from_the_page();
   });
 
   it("Create new page menu en la navegacion principal", () => {
