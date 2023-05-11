@@ -14,24 +14,23 @@ describe("Testing page creation", () => {
     _siteObject = new Site("http://localhost:2368/ghost/#/signin");
     _siteObject.given_user_visit_ghost();
 
-    _loginObject = new Login();
+    _loginObject = new Login("ES006");
     _loginObject.when_user_enter_credentials_and_click_on_login();
 
-    menuObject = new Menu();
+    menuObject = new Menu("ES006");
     menuObject.when_user_navigate_to_pages();
   });
   
 
   it("Test create new page", () => {
     // WHEN: usuario da click en el boton new page
-    _pageObject = new Page();
+    _pageObject = new Page("ES006");
     _pageObject.when_user_click_on_new_page();
     // AND: usuario ingresa el titulo y contenido de la pagina
     _pageObject.when_user_type_title_and_content();
     // AND: usuario publica el pagina
     _pageObject.when_user_publish_page();
-    // AND: usuario abre la pagina recien publicada
-    //_pageObject.when_user_get_back_to_open_new_page()
+
     
     // THEN: la pagina fue publicado
     _pageObject.then_page_was_published();

@@ -2,10 +2,16 @@ let pagesCountBeforeDeletion = 0;
 let pagesCountAfterDeletion = 0;
 let url;
 export class Page {
-  constructor() {}
+  scenario = ''
+
+  constructor(scenario = '') {
+    this.scenario = scenario;
+  }
 
   when_user_click_on_new_page = () => {
     cy.get('a[href="#/editor/page/"]').first().click();
+    cy.wait(500);
+    cy.screenshot(`${this.scenario}/click_on_new_page`);
   };
 
   when_user_type_title_and_content = () => {
@@ -14,6 +20,7 @@ export class Page {
       .find('p[data-koenig-dnd-droppable="true"]')
       .invoke("html", "Esta es mi primera pagina");
     cy.wait(500);
+    cy.screenshot(`${this.scenario}/type_title_and_content`);
   };
 
   when_user_publish_page = () => {
@@ -21,6 +28,8 @@ export class Page {
     cy.wait(100);
     cy.get("button.gh-publishmenu-button").click();
     cy.wait(2500);
+    cy.screenshot(`${this.scenario}/publish_page`);
+
   };
 
   when_user_get_back_to_open_new_page = () => {
@@ -41,6 +50,9 @@ export class Page {
         expect(text.trim()).to.equal("Published");
 
         cy.get('a[href="#/pages/"').click();
+        cy.wait(500)
+        cy.screenshot(`${this.scenario}/page_published`);
+
       });
   };
 
@@ -53,6 +65,7 @@ export class Page {
     cy.wait(500);
     cy.get("button.gh-publishmenu-button").click();
     cy.wait(2500);
+    cy.screenshot(`${this.scenario}/click_on_edit_page`);
   };
 
   when_user_get_page_link = () => {
@@ -76,6 +89,8 @@ export class Page {
     });
 
     cy.get('a[href="#/pages/"').click();
+    cy.wait(500)
+    cy.screenshot(`${this.scenario}/page_was_modified`);
   };
 
   when_user_click_on_delete_page = () => {
@@ -91,6 +106,7 @@ export class Page {
     cy.wait(2500);
     cy.get("button.gh-btn-red").click();
     cy.wait(2500);
+    cy.screenshot(`${this.scenario}/click_on_delete_this_page`);
   };
 
   then_page_was_deleted = () => {
@@ -100,6 +116,7 @@ export class Page {
       expect(parseInt(pagesCountAfterDeletion)).to.be.lessThan(
         parseInt(pagesCountBeforeDeletion)
       );
+      cy.screenshot(`${this.scenario}/page_was_deleted`);
     });
   };
 
