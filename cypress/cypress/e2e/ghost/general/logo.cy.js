@@ -4,10 +4,10 @@ import { Menu } from "../menu/menu";
 import { General } from "./general";
 
 describe('template spec', () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _generalObject = new General();
-  let _menuObject = new Menu();
+  let _siteObject = new Site('ES016');
+  let _loginObject = new Login('ES016');
+  let _generalObject = new General('ES016');
+  let _menuObject = new Menu('ES016');
 
   it("Test Title & description", () => {
     // GIVEN: usuario autenticado

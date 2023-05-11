@@ -10,10 +10,10 @@ describe('Testing General settings', () => {
   let _menuObject;
 
   beforeEach(() => {
-    _siteObject = new Site();
-    _loginObject = new Login();
-    _staffObject = new Staff();
-    _menuObject = new Menu();
+    _siteObject = new Site('ES018');
+    _loginObject = new Login('ES018');
+    _staffObject = new Staff('ES018');
+    _menuObject = new Menu('ES018');
 
     Cypress.on('uncaught:exception', (err, runnable) => {
         // returning false here prevents Cypress from
@@ -24,7 +24,7 @@ describe('Testing General settings', () => {
 
   afterEach(() => {
     _staffObject.when_user_type_old_fullname();
-    _staffObject.when_user_save_settings();
+    _staffObject.when_user_save_settings_after();
   })
 
   it("Test Title & description", () => {

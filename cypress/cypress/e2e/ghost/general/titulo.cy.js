@@ -4,14 +4,14 @@ import { Menu } from "../menu/menu";
 import { General } from "./general";
 
 describe('Testing General settings', () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _generalObject = new General();
-  let _menuObject = new Menu();
+  let _siteObject = new Site('ES014');
+  let _loginObject = new Login('ES014');
+  let _generalObject = new General('ES014');
+  let _menuObject = new Menu('ES014');
 
   afterEach(() => {
     _generalObject.when_user_reset_title_and_descripcion();
-    _generalObject.when_user_save_settings();
+    _generalObject.when_user_save_settings_after();
   })
 
   it("Test Title & description", () => {

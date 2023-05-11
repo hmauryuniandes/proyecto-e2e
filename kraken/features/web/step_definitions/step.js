@@ -16,12 +16,12 @@ When('I enter password {kraken-string}', async function (password) {
     return await element.setValue(password);
 });
 
-When('I click sign in', async function() {
+When('I click sign in', async function () {
     let element = await this.driver.$('button[type="submit"]');
     return await element.click();
 });
 
-When('I click additional', async function() {
+When('I click additional', async function () {
     let element = await this.driver.$('div[class="gh-nav-bottom"]');
     return await element.click();
 });
@@ -39,12 +39,12 @@ When('I click tag', async function () {
 When('I click new tag', async function () {
     let element = await this.driver.$('a[href="#/tags/new/"]');
     return await element.click();
-}); 
+});
 
 When('I click save', async function () {
     let element = await this.driver.$('span=Save');
     return await element.click();
-}); 
+});
 
 When('I enter name tag {kraken-string}', async function (tag) {
     let element = await this.driver.$('input[name="name"]');
@@ -54,7 +54,7 @@ When('I enter name tag {kraken-string}', async function (tag) {
 Then('I validate title tag {kraken-string}', async function (tag) {
     let element = await this.driver.$('h2.gh-canvas-title');
     let text = await element.getText();
-    return assert.equal(text, `Tags\n${tag}` );
+    return assert.equal(text, `Tags\n${tag}`);
 });
 
 When('I get text value slug', async function () {
@@ -94,7 +94,7 @@ When('I click post', async function () {
 When('I click new post', async function () {
     let element = await this.driver.$('a[href="#/editor/post/"]');
     return await element.click();
-}); 
+});
 
 When('I enter name post {kraken-string}', async function (post) {
     let element = await this.driver.$('textarea[placeholder="Post Title"]');
@@ -119,14 +119,14 @@ Then('I search post {kraken-string}', async function (post) {
 When('I click settings post', async function () {
     let element = await this.driver.$('button[title="Settings"]');
     return await element.click();
-}); 
+});
 
 When('I assing tag to post {kraken-string}', async function (tag) {
     let element = await this.driver.$('input[type="Search"]');
     await element.click();
     let eletag = await this.driver.$(`li=${tag}`);
     return await eletag.click();
-}); 
+});
 
 When('I close settings post', async function () {
     let element = await this.driver.$('button[aria-label="Close"]');
@@ -141,7 +141,7 @@ When('I click update post', async function () {
         let element = await this.driver.$('span=Publish');
         return await element.click();
     }
-}); 
+});
 
 
 When('I click confirm update post', async function () {
@@ -152,7 +152,7 @@ When('I click confirm update post', async function () {
         element = await this.driver.$("button[class='gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view']");
         return await element.click();
     }
-}); 
+});
 
 Then('I validate post publication', async function () {
     try {
@@ -171,7 +171,7 @@ When('I click page', async function () {
 When('I click new page', async function () {
     let element = await this.driver.$('a[href="#/editor/page/"]');
     return await element.click();
-}); 
+});
 
 When('I enter name page {kraken-string}', async function (page) {
     let element = await this.driver.$('textarea[placeholder="Page Title"]');
@@ -196,14 +196,14 @@ Then('I search page {kraken-string}', async function (page) {
 When('I click settings page', async function () {
     let element = await this.driver.$('button[title="Settings"]');
     return await element.click();
-}); 
+});
 
 When('I assing tag to page {kraken-string}', async function (tag) {
     let element = await this.driver.$('input[type="Search"]');
     await element.click();
     let eletag = await this.driver.$(`li=${tag}`);
     return await eletag.click();
-}); 
+});
 
 When('I close settings page', async function () {
     let element = await this.driver.$('button[aria-label="Close"]');
@@ -218,7 +218,7 @@ When('I click update page', async function () {
         let element = await this.driver.$('span=Publish');
         return await element.click();
     }
-}); 
+});
 
 
 When('I click confirm update page', async function () {
@@ -229,7 +229,7 @@ When('I click confirm update page', async function () {
         element = await this.driver.$("button[class='gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view']");
         return await element.click();
     }
-}); 
+});
 
 Then('I validate page publication', async function () {
     try {
@@ -349,70 +349,75 @@ Then('I title was updated', async function () {
 });
 
 When('And I user click on upload image', async function () {
-    let element = await this.driver.$('.gh-setting-first > .gh-setting-action > div > span > input[type="file"]').selectFile('/fixtures/kraken-icon.png', { force: true });
+    let element = await this.driver.$('.x-file--input');
+    let path = require('path');
+    let absolutePath = path.resolve(__dirname, './fixtures/kraken-icon.png');
+    let fileInput = element(by.css('.x-file--input'));
+    //fileInput.sendKeys(absolutePath);
+    //.selectFile('./fixtures/kraken-icon.png', { force: true });
     return await element.click();
 });
 
-When('I click next', async function() {
+When('I click next', async function () {
     let element = await this.driver.$('button[type="submit"]');
     return await element.click();
 });
 
-When('I Navigate to pages', async function() {
+When('I Navigate to pages', async function () {
     let element = await this.driver.$('a[href="#/pages/"]');
     return await element.click();
 });
 
-When('I create a new page',async function(){
+When('I create a new page', async function () {
     await this.driver.$('a[href="#/editor/page/"]').click()
 })
 
-When('I write a title', async function(){
+When('I write a title', async function () {
     let title = await this.driver.$('textarea[placeholder="Page Title"]');
     await title.setValue("Nueva Pagina");
 })
 
-When('I write a message', async function(){
+When('I write a message', async function () {
     let element = await this.driver.$('div.koenig-editor__editor p');
-  await this.driver.execute((el, text) => {
-    el.innerHTML = text;
-  }, element, "Esta es mi primera pagina");
+    await this.driver.execute((el, text) => {
+        el.innerHTML = text;
+    }, element, "Esta es mi primera pagina");
 })
 
-When('I publish the page', async function(){
+When('I publish the page', async function () {
     await this.driver.$('div.gh-publishmenu-trigger').click();
     await this.driver.$('button.gh-publishmenu-button').click();
 })
 
-Then('I confim if the page is published', async function(){
+Then('I confim if the page is published', async function () {
     /*let element = await this.driver.$('div.flex > span > div');
     return assert.equal("Published", element.getText());*/
 })
 
-When('I click on first page', async function(){
+When('I click on first page', async function () {
     await this.driver.$$('a[title="Edit this page"]')[0].click();
-    
+
 })
 
-When('I modify the title', async function(){
+When('I modify the title', async function () {
     await this.driver.$('textarea[placeholder="Page Title"]').setValue(" Modificada");
 })
 
-When('I press update button', async function(){
+When('I press update button', async function () {
     await this.driver.$('div.gh-publishmenu-trigger').click();
-    
+
 })
 
-When('I confirm update', async function(){
+When('I confirm update', async function () {
     await this.driver.$('button.gh-publishmenu-button').click();
 })
 
-Then('I validate the update', async function(){
-   /* let element = await this.driver.$(' aside > article > .gh-notification-content > .gh-notification-title');
-    return assert.equal("Updated", element.getText());*/
+Then('I validate the update', async function () {
+    /* let element = await this.driver.$(' aside > article > .gh-notification-content > .gh-notification-title');
+     return assert.equal("Updated", element.getText());*/
 })
 
-When('I click on settings', async function(){
+When('I click on settings', async function () {
     await this.driver.$('button.post-settings').click();
 })
 
@@ -421,59 +426,88 @@ When('I scroll to buttom', async function () {
     return await element.scrollIntoView({ block: "end" });
 });
 
-When('I click delete button', async function(){
+When('I click delete button', async function () {
     await this.driver.$('button.settings-menu-delete-button').click();
 })
 
-When('I confirm I want to delete', async function(){
+When('I confirm I want to delete', async function () {
     await this.driver.$('button.gh-btn-red').click();
 })
 
-Then('I validate the delete', async function(){
-    
+Then('I validate the delete', async function () {
+
 })
 
-When('I navigate to config', async function() {
+When('I navigate to config', async function () {
     let element = await this.driver.$('a[href="#/settings/design/"]');
     return await element.click();
 });
 
-When('I write the primary menu name', async function() {
+When('I write the primary menu name', async function () {
     let name = await this.driver.$$('input[placeholder="Label"]')[0];
     await name.setValue("Nueva Pagina");
 });
 
-When('I write the path to the primary menu', async function() {
+When('I write the path to the primary menu', async function () {
     let path = await this.driver.$$('span.gh-blognav-url > input.ember-text-field')[0];
     await path.setValue("nueva-pagina");
 });
 
-When('I click on plus', async function() {
+When('I click on plus', async function () {
     let element = await this.driver.$$('button.gh-blognav-add')[0];
     return await element.click();
 });
 
-When('I primary menu save changes', async function() {
+When('I primary menu save changes', async function () {
     let element = await this.driver.$('button.gh-btn-blue');
     return await element.click();
 });
 
-Then('I check changes were saved', async function(){
-    
+Then('I check changes were saved', async function () {
+
 })
 
 
-When('I write the second menu name', async function() {
+When('I write the second menu name', async function () {
     let name = await this.driver.$$('input[placeholder="Label"]');
-    await name[name.length-1].setValue("Nueva Pagina");
+    await name[name.length - 1].setValue("Nueva Pagina");
 });
 
-When('I write the path to the second menu', async function() {
+When('I write the path to the second menu', async function () {
     let path = await this.driver.$$('span.gh-blognav-url > input.ember-text-field');
-    await path[path.length-1].setValue("nueva-pagina");
+    await path[path.length - 1].setValue("nueva-pagina");
 });
 
-When('I click on last plus', async function() {
+When('I click on last plus', async function () {
     let element = await this.driver.$$('button.gh-blognav-add');
-    return await element[element.length-1].click();
+    return await element[element.length - 1].click();
+});
+
+When('I user click profile', async function () {
+    let element = await this.driver.$$('a[class="dropdown-item ember-view"]')[1];
+    return await element.click();
+});
+
+When('I type new full name {kraken-string}', async function (newfullname) {
+    let element = await this.driver.$("#user-name");
+    return await element.setValue(newfullname);
+});
+
+Then('I newfullname was updated', async function () {
+    try {
+        let element = await this.driver.$(".flex.flex-column.items-start.justify-center > span");
+        return assert.equal("New Full Name", element.getText());
+    } catch (error) {
+        return error;
+    }
+});
+
+When('I navigate to code injection', async function () {
+    let element = await this.driver.$("section.gh-nav-body").$('a[href="#/settings/code-injection/"]');
+    return await element.click();
+});
+
+When('I type style on header {kraken-string}', async function (styleheader) {
+    let element = await this.driver.$('.gh-cm-editor-textarea.ember-text-area.gh-input.ember-view');
+    return await element.setValue("styleheader");
 });

@@ -1,6 +1,6 @@
-const username = "hmaury1@gmail.com";
+const username = "f.alarconf@uniandes.edu.co";
 const invalidUsername = "xxx@xxx.com";
-const password = "Hola123456*#";
+const password = "fredy12345";
 const invalidPassword = "123";
 const retryText = "Retry";
 
@@ -15,8 +15,10 @@ export class Login {
     return cy.get("button.login");
   }
 
-  constructor() {
-   
+  scenario = ''
+
+  constructor(scenario = '') { 
+    this.scenario = scenario;
   }
 
   when_user_enter_credentials_and_click_on_login = () => {

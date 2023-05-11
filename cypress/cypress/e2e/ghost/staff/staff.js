@@ -12,12 +12,18 @@ export class Staff {
     return cy.get(".gh-canvas-header > .view-actions > button");
   }
 
-  constructor() {}
+  scenario = ''
+  
+  constructor(scenario = '') { 
+    this.scenario = scenario;
+  }
 
   when_user_click_on_first_user = () => {
     cy.get(".apps-grid-cell.tooltip-centered > a").then((buttons) => {
       buttons[0].click();
     });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/click_on_first_user`);
   };
 
   when_user_type_new_fullname = () => {
@@ -27,16 +33,19 @@ export class Staff {
     });
     this.userNameField.clear().type(this.newFullName, { force: true });
     cy.wait(500);
+    cy.screenshot(`${this.scenario}/type_new_fullname`);
   };
 
   when_user_type_old_fullname = () => {
     this.userNameField.clear().type(this.oldFullName, { force: true });
     cy.wait(500);
+    cy.screenshot(`${this.scenario}/type_old_fullname`);
   };
 
   when_user_save_settings = () => {
     this.saveButton.click();
     cy.wait(100);
+    cy.screenshot(`${this.scenario}/save_settings`);
   };
 
   then_save_settings = () => {
@@ -51,5 +60,13 @@ export class Staff {
     ).then(($username) => {
       expect($username[0].innerText).to.equal(this.newFullName);
     });
+    cy.wait(500);
+    cy.screenshot(`${this.scenario}/then_save_settings`);
+  };
+
+  when_user_save_settings_after = () => {
+    this.saveButton.click();
+    cy.wait(100);
+    cy.screenshot(`${this.scenario}/save_settings_after`);
   };
 }

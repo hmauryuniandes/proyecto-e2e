@@ -1,6 +1,6 @@
 {
-    "USERNAME1": "hmaury1@gmail.com",
-    "PASSWORD1": "Hola123456*#",
+    "USERNAME1": "f.alarconf@uniandes.edu.co",
+    "PASSWORD1": "fredy12345",
     "INVALID_USERNAME": "xxx@xxx.com",
     "INVALID_PASSWORD": "123",
     "TAG1": "Tag ghost",
@@ -17,5 +17,7 @@
     "PAGE1": "Page ghost 1",
     "CONPAGE1": "Contenido Page ghost 1",
     "TITLE": "Nuevo Título",
-    "DESCRIPTION": "Nueva descripción"
+    "DESCRIPTION": "Nueva descripción",
+    "NEWFULLNAME": "New Full Name",
+    "STYLEHEADER": "<style>.site-title {color: #EE2626;}</style>"
 }
