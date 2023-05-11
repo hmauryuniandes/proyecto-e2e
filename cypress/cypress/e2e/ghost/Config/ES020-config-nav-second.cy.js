@@ -12,7 +12,7 @@ describe("Testion new menus", () => {
   let _configObject;
   beforeEach(()=>{
     // GIVEN: usuario autenticado y navego hasta pages
-    _siteObject = new Site("http://localhost:2368/ghost/#/signin");
+    _siteObject = new Site("ES020");
     _siteObject.given_user_visit_ghost();
 
     _loginObject = new Login("ES020");

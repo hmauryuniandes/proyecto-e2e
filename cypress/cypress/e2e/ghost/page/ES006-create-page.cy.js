@@ -11,7 +11,7 @@ describe("Testing page creation", () => {
   let menuObject;
   beforeEach(()=>{
     // GIVEN: usuario autenticado y navego hasta pages
-    _siteObject = new Site("http://localhost:2368/ghost/#/signin");
+    _siteObject = new Site("ES006");
     _siteObject.given_user_visit_ghost();
 
     _loginObject = new Login("ES006");
