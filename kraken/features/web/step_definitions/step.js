@@ -368,7 +368,7 @@ When('I create a new page',async function(){
 })
 
 When('I write a title', async function(){
-    let title = await this.driver.$('textarea[placeholder="Page Title"]');
+    let title = await this.driver.$('textarea[placeholder="Page title"]');
     await title.setValue("Nueva Pagina");
 })
 
@@ -385,17 +385,17 @@ When('I publish the page', async function(){
 })
 
 Then('I confim if the page is published', async function(){
-    let element = await this.driver.$('div.flex > span > div');
+    let element = await this.driver.$('span.gh-notification-title');
     return assert.equal("Published", (await element.getText()));
 })
 
 When('I click on first page', async function(){
-    await this.driver.$$('a[title="Edit this page"]')[0].click();
+    await this.driver.$$('h3.gh-content-entry-title')[0].click();
     
 })
 
 When('I modify the title', async function(){
-    await this.driver.$('textarea[placeholder="Page Title"]').setValue(" Modificada");
+    await this.driver.$('textarea[placeholder="Page title"]').setValue(" Modificada");
 })
 
 When('I press update button', async function(){
@@ -414,7 +414,7 @@ Then('I validate the update', async function(){
  });
 
 When('I click on settings', async function(){
-    await this.driver.$('button.post-settings').click();
+    await this.driver.$('button.settings-menu-toggle').click();
 })
 
 
@@ -432,7 +432,9 @@ Then('I validate the delete', async function(){
 })
 
 When('I navigate to config', async function() {
-    let element = await this.driver.$('a[href="#/settings/design/"]');
+    
+    await this.driver.$('a[href="#/settings/"]').click();
+    let element = await this.driver.$('a[href="#/settings/navigation/"]') 
     return await element.click();
 });
 
@@ -452,7 +454,7 @@ When('I click on plus', async function() {
 });
 
 When('I primary menu save changes', async function() {
-    let element = await this.driver.$('button.gh-btn-blue');
+    let element = await this.driver.$('button.gh-btn-primary');
     return await element.click();
 });
 
