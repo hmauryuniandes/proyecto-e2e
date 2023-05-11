@@ -15,7 +15,7 @@ export class Page {
   };
 
   when_user_type_title_and_content = () => {
-    cy.get('textarea[placeholder="Page Title"]').type("Nueva Pagina");
+    cy.get('textarea[placeholder="Page title"]').type("Nueva Pagina");
     cy.get(".koenig-editor__editor")
       .find('p[data-koenig-dnd-droppable="true"]')
       .invoke("html", "Esta es mi primera pagina");
@@ -48,7 +48,7 @@ export class Page {
   }
 
   then_page_was_published = () => {
-    cy.get("div.flex > span > div")
+    cy.get("span.gh-notification-title")
       .invoke("text")
       .then((text) => {
         console.log(text.trim());
@@ -62,9 +62,9 @@ export class Page {
   };
 
   when_user_click_on_edit_page = () => {
-    cy.get('a[title="Edit this page"]:eq(0)').click();
+    cy.get('h3.gh-content-entry-title:eq(0)').click();
     cy.wait(100);
-    cy.get('textarea[placeholder="Page Title"]').type(" Modificada");
+    cy.get('textarea[placeholder="Page title"]').type(" Modificada");
     cy.wait(500);
     cy.get("div.gh-publishmenu-trigger").click();
     cy.wait(500);
