@@ -2,8 +2,8 @@ import { Site } from "../site/site";
 import { Login } from "./login";
 
 describe("Testing Ghost authentication", () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
+  let _siteObject = new Site('ES001');
+  let _loginObject = new Login('ES001');
 
   it("test invalid login and valid login", () => {
     // GIVEN: usuario que ingreso al enlace del sitio de ghost

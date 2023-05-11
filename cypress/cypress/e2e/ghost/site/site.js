@@ -3,12 +3,16 @@ const _url = "http://localhost:2368/ghost/#/signin";
 
 export class Site {
 
-  constructor() {
+  scenario = ''
+
+  constructor(scenario = '') {
+    this.scenario = scenario;
   }
 
   given_user_visit_ghost = () => {
     cy.visit(_url);
     cy.wait(2000);
+    cy.screenshot(`${this.scenario}/visit_ghost`);
   }
   
   then_user_is_redirected_to_site_portal = () => {
@@ -16,9 +20,7 @@ export class Site {
     cy.window().then((win) => {
       expect(win.document.location.href).to.include("/ghost/#/");
     });
-    /*cy.get(".gh-nav-menu-details-blog").then(($header) => {
-      expect($header).not.to.be.undefined
-    });*/
+    cy.screenshot(`${this.scenario}/redirected_to_site_portal`);
   };
 
   then_user_is_redirected_to_site_login = () => {
@@ -26,5 +28,6 @@ export class Site {
     cy.window().then((win) => {
       expect(win.document.location.href).to.include("/ghost/#/signin");
     });
+    cy.screenshot(`${this.scenario}/redirected_to_site_login`);
   };
 }

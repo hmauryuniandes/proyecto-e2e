@@ -15,8 +15,10 @@ export class Login {
     return cy.get("button.login");
   }
 
-  constructor() {
-   
+  scenario = ''
+
+  constructor(scenario = '') {
+    this.scenario = scenario;
   }
 
   when_user_enter_credentials_and_click_on_login = () => {
@@ -24,6 +26,7 @@ export class Login {
     this.password.clear().type(password);
     this.loginButton.click();
     cy.wait(5000);
+    cy.screenshot(`${this.scenario}/enter_credentials`);
   };
 
   when_user_enter_invalid_credentials_and_click_on_login = () => {
@@ -31,6 +34,7 @@ export class Login {
     this.password.type(invalidPassword);
     this.loginButton.click();
     cy.wait(1000);
+    cy.screenshot(`${this.scenario}/click_on_login`);
   };
 
   then_show_invalid_message_and_show_retry = () => {
@@ -41,5 +45,6 @@ export class Login {
     cy.get("p.main-error").then(($error) => {
       expect($error).to.not.be.undefined;
     });
+    cy.screenshot(`${this.scenario}/show_invalid_login`);
   };
 }
