@@ -99,13 +99,13 @@ export class Page {
   };
 
   when_user_click_on_delete_page = () => {
-    cy.get('a[title="Edit this page"]').then(($before) => {
+    cy.get('h3.gh-content-entry-title').then(($before) => {
       pagesCountBeforeDeletion = $before.length;
       console.log("before: ", pagesCountBeforeDeletion);
     });
-    cy.get('a[title="Edit this page"]:eq(0)').click();
+    cy.get('h3.gh-content-entry-title:eq(0)').click();
     cy.wait(100);
-    cy.get("button.post-settings").click();
+    cy.get("button.settings-menu-toggle").click();
     cy.wait(500);
     cy.get("button.settings-menu-delete-button").click();
     cy.wait(2500);
@@ -115,7 +115,7 @@ export class Page {
   };
 
   then_page_was_deleted = () => {
-    cy.get('a[title="Edit this page"]').then(($after) => {
+    cy.get('h3.gh-content-entry-title').then(($after) => {
       pagesCountAfterDeletion = $after.length;
       console.log("after: ", pagesCountAfterDeletion);
       expect(parseInt(pagesCountAfterDeletion)).to.be.lessThan(

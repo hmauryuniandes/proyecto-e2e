@@ -97,10 +97,12 @@ export class Menu {
   };
 
   when_user_navigate_to_config = () => {
-    cy.get("section.gh-nav-body").within(() => {
-      cy.get('a[href="#/settings/design/"]').click();
-      cy.screenshot(`${this.scenario}/navigate_to_config`);
-    });
+    cy.wait(2000)
+    cy.get('a[href="#/settings/"]>').click()
+    cy.wait(100)
+    cy.get('a[href="#/settings/navigation/"]').click();
+    cy.wait(100)
+    cy.screenshot(`${this.scenario}/navigate_to_config`);
   }
 
   when_user_navigate_to_view_site = () => {
