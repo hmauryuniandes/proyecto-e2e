@@ -9,7 +9,7 @@ export class Staff {
   }
 
   get saveButton() {
-    return cy.get(".gh-canvas-header > .view-actions > button");
+    return cy.get(".gh-canvas-header-content > .view-actions > button");
   }
 
   scenario = ''
@@ -49,17 +49,11 @@ export class Staff {
   };
 
   then_save_settings = () => {
-    cy.get(
-      ".gh-canvas-header > .view-actions > button > span"
-    ).then(($title) => {
+    cy.get(".gh-canvas-header-content > .view-actions > button").then(($title) => {
       expect($title[0].innerText).to.equal("Saved");
     });
 
-    cy.get(
-      '.gh-user-name'
-    ).then(($username) => {
-      expect($username[0].innerText).to.equal(this.newFullName);
-    });
+    cy.get('.gh-canvas-title').should('include.text',this.newFullName);
     cy.wait(500);
     cy.screenshot(`${this.scenario}/then_save_settings`);
   };

@@ -25,7 +25,8 @@ export class Menu {
   }
 
   get profileDropdown() {
-    return cy.get('.gh-nav-bottom > div.pointer');
+    return cy.get('.gh-nav-bottom > .flex.items-center.justify-between > .pe-all > div.pointer');
+    
   } 
 
   get logoutButton() {
