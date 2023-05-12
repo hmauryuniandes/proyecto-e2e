@@ -2,8 +2,6 @@ import { Menu } from "../menu/menu";
 import { Site } from "../site/site";
 import { Login } from "./login";
 
-
-
 describe("Testing Ghost authentication", () => {
   let _siteObject = new Site('ES002');
   let _loginObject = new Login('ES002');

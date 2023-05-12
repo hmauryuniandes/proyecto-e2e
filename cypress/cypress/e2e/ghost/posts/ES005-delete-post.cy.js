@@ -5,10 +5,10 @@ import { Post } from "./post";
 
 
 describe("Testing post creation", () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _postObject = new Post();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES005');
+  let _loginObject = new Login('ES005');
+  let _postObject = new Post('ES005');
+  let menuObject = new Menu('ES005');
 
   it("Test create new post", () => {
     // GIVEN: usuario autenticado
@@ -31,6 +31,6 @@ describe("Testing post creation", () => {
     _postObject.when_user_delete_current_post();
 
     // THEN: el post fue eliminado
-    _postObject.then_latest_post_was_edited();
+    _postObject.then_latest_post_was_deleted();
   });
 });

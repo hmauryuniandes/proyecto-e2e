@@ -27,7 +27,7 @@ export class Menu {
   }
 
   get profileDropdown() {
-    return cy.get('.gh-nav-bottom > div.pointer');
+    return cy.get('.gh-nav-bottom > div > div > .ember-basic-dropdown-trigger');
   } 
 
   get logoutButton() {

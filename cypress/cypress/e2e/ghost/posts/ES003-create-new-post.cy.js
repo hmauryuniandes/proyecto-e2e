@@ -3,12 +3,11 @@ import { Menu } from "../menu/menu";
 import { Site } from "../site/site";
 import { Post } from "./post";
 
-
 describe("Testing post creation", () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _postObject = new Post();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES003');
+  let _loginObject = new Login('ES003');
+  let _postObject = new Post('ES003');
+  let menuObject = new Menu('ES003');
 
   afterEach(() => {
     _postObject.when_user_delete_current_post();

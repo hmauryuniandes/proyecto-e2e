@@ -51,7 +51,7 @@
     - ES002: login, navegación y logout.
 
 ### Posts
-    - ESOO3: Crear post y publicar un post.
+    - ES003: Crear post y publicar un post.
     - ES004: Editar un post despues de crealo y publicarlo.
     - ES005: Eliminar post despues de crealo y publicarlo.
    
