@@ -508,6 +508,53 @@ When('I navigate to code injection', async function () {
 });
 
 When('I type style on header {kraken-string}', async function (styleheader) {
-    let element = await this.driver.$('.gh-cm-editor-textarea.ember-text-area.gh-input.ember-view');
-    return await element.setValue("styleheader");
+    let element = await this.driver.$$('textarea')[1];
+    return await element.setValue(styleheader);
 });
+
+When('I Navigate to view site', async function () {
+    let element = await this.driver.$('a[href="#/site/"]');
+    return await element.click();
+});
+
+Then('I style of header was updated', async function () {
+    try {
+        let element = await this.driver.$("style");
+        return assert.contain(element.getText(), "EE2626");
+    } catch (error) {
+        return error;
+    }
+});
+
+When('I click settings', async function () {
+    let element = await this.driver.$('div > a[href="#/settings/"]');
+    return await element.click();
+});
+
+When('I click general v4', async function () {
+    let element = await this.driver.$('div > a[href="#/settings/general/"]');
+    return await element.click();
+});
+
+When('I click expand title and description v4', async function () {
+    let element = await this.driver.$$(".gh-expandable-header > button")[0];
+    return await element.click();
+});
+
+When('I user save settings v4', async function () {
+    let element = await this.driver.$(".gh-canvas-header-content > .view-actions > button");
+    return await element.click();
+});
+
+When('I expand profile options v4', async function () {
+    let element = await this.driver.$('.gh-nav-bottom > .flex.items-center.justify-between > .pe-all > div.pointer');
+    return await element.click();
+});
+
+When('I user click profile v4', async function () {
+    let element = await this.driver.$('.dropdown-menu.dropdown-triangle-top > li:nth-of-type(4) > a');
+    return await element.click();
+});
+
+
+
