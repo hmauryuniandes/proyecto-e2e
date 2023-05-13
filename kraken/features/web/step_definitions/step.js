@@ -313,3 +313,167 @@ Then('I search post {kraken-string} in the list', async function (post) {
     let elementLinks = await this.driver.$$(`.posts-list li > a`);
     return await elementLinks[index].click();
 });
+
+When('I click general', async function () {
+    let element = await this.driver.$("section.gh-nav-body").$('a[href="#/settings/general/"]');
+    return await element.click();
+});
+
+When('I click expand title and description', async function () {
+    let element = await this.driver.$$('.gh-setting-first > .gh-setting-action > button')[0];
+    return await element.click();
+});
+
+When('I type title {kraken-string}', async function (title) {
+    let element = await this.driver.$(".ember-text-field.gh-input.ember-view");
+    return await element.setValue(title);
+});
+
+When('I type description {kraken-string}', async function (description) {
+    let element = await this.driver.$$(".ember-text-field.gh-input.ember-view")[1];
+    return await element.setValue(description);
+});
+
+When('I user save settings', async function () {
+    let element = await this.driver.$(".gh-canvas-header > .view-actions > button");
+    return await element.click();
+});
+
+Then('I title was updated', async function () {
+    try {
+        let element = await this.driver.$(".gh-nav-menu-details-blog");
+        return assert.equal("Nuevo Título", element.getText());
+    } catch (error) {
+        return error;
+    }
+});
+
+When('And I user click on upload image', async function () {
+    let element = await this.driver.$('.gh-setting-first > .gh-setting-action > div > span > input[type="file"]').selectFile('/fixtures/kraken-icon.png', { force: true });
+    return await element.click();
+});
+
+When('I click next', async function() {
+    let element = await this.driver.$('button[type="submit"]');
+    return await element.click();
+});
+
+When('I Navigate to pages', async function() {
+    let element = await this.driver.$('a[href="#/pages/"]');
+    return await element.click();
+});
+
+When('I create a new page',async function(){
+    await this.driver.$('a[href="#/editor/page/"]').click()
+})
+
+When('I write a title', async function(){
+    let title = await this.driver.$('textarea[placeholder="Page Title"]');
+    await title.setValue("Nueva Pagina");
+})
+
+When('I write a message', async function(){
+    let element = await this.driver.$('div.koenig-editor__editor p');
+  await this.driver.execute((el, text) => {
+    el.innerHTML = text;
+  }, element, "Esta es mi primera pagina");
+})
+
+When('I publish the page', async function(){
+    await this.driver.$('div.gh-publishmenu-trigger').click();
+    await this.driver.$('button.gh-publishmenu-button').click();
+})
+
+Then('I confim if the page is published', async function(){
+    /*let element = await this.driver.$('div.flex > span > div');
+    return assert.equal("Published", element.getText());*/
+})
+
+When('I click on first page', async function(){
+    await this.driver.$$('a[title="Edit this page"]')[0].click();
+    
+})
+
+When('I modify the title', async function(){
+    await this.driver.$('textarea[placeholder="Page Title"]').setValue(" Modificada");
+})
+
+When('I press update button', async function(){
+    await this.driver.$('div.gh-publishmenu-trigger').click();
+    
+})
+
+When('I confirm update', async function(){
+    await this.driver.$('button.gh-publishmenu-button').click();
+})
+
+Then('I validate the update', async function(){
+   /* let element = await this.driver.$(' aside > article > .gh-notification-content > .gh-notification-title');
+    return assert.equal("Updated", element.getText());*/
+})
+
+When('I click on settings', async function(){
+    await this.driver.$('button.post-settings').click();
+})
+
+When('I scroll to buttom', async function () {
+    let element = await this.driver.$('.settings-menu-content');
+    return await element.scrollIntoView({ block: "end" });
+});
+
+When('I click delete button', async function(){
+    await this.driver.$('button.settings-menu-delete-button').click();
+})
+
+When('I confirm I want to delete', async function(){
+    await this.driver.$('button.gh-btn-red').click();
+})
+
+Then('I validate the delete', async function(){
+    
+})
+
+When('I navigate to config', async function() {
+    let element = await this.driver.$('a[href="#/settings/design/"]');
+    return await element.click();
+});
+
+When('I write the primary menu name', async function() {
+    let name = await this.driver.$$('input[placeholder="Label"]')[0];
+    await name.setValue("Nueva Pagina");
+});
+
+When('I write the path to the primary menu', async function() {
+    let path = await this.driver.$$('span.gh-blognav-url > input.ember-text-field')[0];
+    await path.setValue("nueva-pagina");
+});
+
+When('I click on plus', async function() {
+    let element = await this.driver.$$('button.gh-blognav-add')[0];
+    return await element.click();
+});
+
+When('I primary menu save changes', async function() {
+    let element = await this.driver.$('button.gh-btn-blue');
+    return await element.click();
+});
+
+Then('I check changes were saved', async function(){
+    
+})
+
+
+When('I write the second menu name', async function() {
+    let name = await this.driver.$$('input[placeholder="Label"]');
+    await name[name.length-1].setValue("Nueva Pagina");
+});
+
+When('I write the path to the second menu', async function() {
+    let path = await this.driver.$$('span.gh-blognav-url > input.ember-text-field');
+    await path[path.length-1].setValue("nueva-pagina");
+});
+
+When('I click on last plus', async function() {
+    let element = await this.driver.$$('button.gh-blognav-add');
+    return await element[element.length-1].click();
+});

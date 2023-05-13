@@ -15,5 +15,7 @@
     "POST3": "Post ghost new",
     "CONPOST3": "Contenido Post ghost new",
     "PAGE1": "Page ghost 1",
-    "CONPAGE1": "Contenido Page ghost 1"
+    "CONPAGE1": "Contenido Page ghost 1",
+    "TITLE": "Nuevo Título",
+    "DESCRIPTION": "Nueva descripción"
 }
