@@ -4,8 +4,12 @@ export class Menu {
     return cy.get('li > a[href="#/posts/"]');
   } 
 
+  get settingsLink() {
+    return cy.get('div > a[href="#/settings/"]');
+  }
+  
   get generalLink() {
-    return cy.get('li > a[href="#/settings/general/"]');
+    return cy.get('div > a[href="#/settings/general/"]');
   }
 
   get codeInjectionLink() {
@@ -21,7 +25,8 @@ export class Menu {
   }
 
   get profileDropdown() {
-    return cy.get('.gh-nav-bottom > div.pointer');
+    return cy.get('.gh-nav-bottom > .flex.items-center.justify-between > .pe-all > div.pointer');
+    
   } 
 
   get logoutButton() {
@@ -40,7 +45,11 @@ export class Menu {
     return cy.get('li > a[href="#/pages/"]');
   }
 
-  constructor() {}
+  scenario = ''
+
+  constructor(scenario = '') { 
+    this.scenario = scenario;
+  }
 
   when_user_navigate_to_posts = () => {
     this.postLink.click();
@@ -56,6 +65,10 @@ export class Menu {
 
   when_user_click_profile = () => {
     this.profileButton.click();
+  };
+
+  when_user_navigate_to_settings = () => {
+    this.settingsLink.click();
   };
 
   when_user_navigate_to_general = () => {

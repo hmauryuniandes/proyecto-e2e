@@ -10,10 +10,10 @@ describe('Testing General settings', () => {
   let _menuObject;
 
   beforeEach(() => {
-    _siteObject = new Site();
-    _loginObject = new Login();
-    _staffObject = new Staff();
-    _menuObject = new Menu();
+    _siteObject = new Site('ES018');
+    _loginObject = new Login('ES018');
+    _staffObject = new Staff('ES018');
+    _menuObject = new Menu('ES018');
 
     Cypress.on('uncaught:exception', (err, runnable) => {
         // returning false here prevents Cypress from
@@ -24,10 +24,10 @@ describe('Testing General settings', () => {
 
   afterEach(() => {
     _staffObject.when_user_type_old_fullname();
-    _staffObject.when_user_save_settings();
+    _staffObject.when_user_save_settings_after();
   })
 
-  it("Test Title & description", () => {
+  it("Test modify profile", () => {
     // GIVEN: usuario autenticado
     _siteObject.given_user_visit_ghost();
     _loginObject.when_user_enter_credentials_and_click_on_login();
@@ -43,5 +43,7 @@ describe('Testing General settings', () => {
 
     // THEN: el cambio fue guardado
     _staffObject.then_save_settings();
+    _menuObject.when_user_expand_profile();
+    //_staffObject.then_save_settings_new_full_name();
   });
 });

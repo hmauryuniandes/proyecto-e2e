@@ -3,9 +3,12 @@ const _url = "http://localhost:2368/ghost/#/signin";
 
 export class Site {
 
-  constructor() {
-  }
+  scenario = ''
 
+  constructor(scenario = '') { 
+    this.scenario = scenario;
+  }
+  
   given_user_visit_ghost = () => {
     cy.visit(_url);
     cy.wait(2000);
