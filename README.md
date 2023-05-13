@@ -22,6 +22,13 @@
 
     - Ghost debe estar ejecutado
 
+## Ejecución pruebas de regresión visual 
+
+    - abrir terminar 
+    - ingresar a la carpeta prueba_regresion_visual 
+    - correr el comando `node index.js`
+    - abrir la
+
 ## Ejecución de Kraken:
 
     - editar el archivo kraken/properties.json

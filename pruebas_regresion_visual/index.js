@@ -21,7 +21,7 @@ const scenarios = [
 function render_scenario(scenario, steps) {
   const f_steps = steps.filter((x) => x.misMatchPercentage > threshold).length;
   let content = `
-        <div class="scenario>
+        <div class="scenario">
             <h2>Scenario: ${scenario}</h2>
             <p># failed steps:${f_steps} </p>
             `;
