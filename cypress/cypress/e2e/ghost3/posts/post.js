@@ -28,22 +28,30 @@ export class Post {
     return cy.get(".modal-content > .modal-footer > button.gh-btn-red");
   }
 
-  constructor() { }
+  scenario = ''
+
+  constructor(scenario = '') {
+    this.scenario = scenario;
+  }
+
 
   when_user_click_on_new_post = () => {
     this.newPostButton.click();
+    cy.screenshot(`${this.scenario}/click_on_new_post`);
   };
 
   when_user_click_on_go_back_to_posts = () => {
     cy.wait(5000);
     this.goBackToPostsLink.click();
     cy.wait(1000);
+    cy.screenshot(`${this.scenario}/go_back_to_posts`);
   };
 
   when_user_click_on_lastest_post = () => {
     cy.get('.posts-list > li.gh-posts-list-item > a').then(links => {
       links[0].click();
     });
+    cy.screenshot(`${this.scenario}/user_click_on_lastest_post`);
   };
 
   when_user_type_title_and_content = (title = "nuevo post") => {
@@ -52,6 +60,7 @@ export class Post {
       win.document.querySelector('p[data-koenig-dnd-droppable="true"]').innerHTML = "Hola mundo!";
     });
     cy.wait(500);
+    cy.screenshot(`${this.scenario}/user_type_title_and_content`);
   };
 
   when_user_update_title_and_content = () => {
@@ -60,6 +69,7 @@ export class Post {
       win.document.querySelector('p[data-koenig-dnd-droppable="true"]').innerHTML = "Hello Edited post";
     });
     cy.wait(500);
+    cy.screenshot(`${this.scenario}/user_update_title_and_content`);
   };
 
   when_user_publish_post = () => {
@@ -67,6 +77,7 @@ export class Post {
     cy.wait(100);
     this.publishButton.click();
     cy.wait(1000);
+    cy.screenshot(`${this.scenario}/user_publish_post`);
   };
 
   then_post_was_published = () => {
@@ -79,6 +90,7 @@ export class Post {
     cy.get("div.gh-publishmenu-trigger").then(($action) => {
       expect($action[0].innerText.trim()).to.equal("Update");
     });
+    cy.screenshot(`${this.scenario}/post_was_published`);
   };
 
   then_post_was_Edited = () => {
@@ -91,11 +103,13 @@ export class Post {
     cy.get("div.gh-publishmenu-trigger").then(($action) => {
       expect($action[0].innerText.trim()).to.equal("Update");
     });
+    cy.screenshot(`${this.scenario}/post_was_Edited`);
   };
 
   then_latest_post_was_edited = () => {
     cy.get('.posts-list > li.gh-posts-list-item > a > h3').then(titles => {
       expect(titles[0].innerText).to.equal("nuevo post edited");
+      cy.screenshot(`${this.scenario}/latest_post_was_edited`);
     });
   };
 
@@ -107,6 +121,7 @@ export class Post {
       } else {
         expect(posts).to.equal(0);
       }
+      cy.screenshot(`${this.scenario}/post_was_deleted`);
     });
   };
 

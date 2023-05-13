@@ -4,11 +4,12 @@ import { Site } from "../site/site";
 import { Post } from "./post";
 
 
+
 describe("Testing post creation", () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _postObject = new Post();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES004');
+  let _loginObject = new Login('ES004');
+  let _postObject = new Post('ES004');
+  let menuObject = new Menu('ES004');
 
   afterEach(() => {
     _postObject.when_user_click_on_lastest_post();
@@ -35,7 +36,7 @@ describe("Testing post creation", () => {
     // AND: Modifica el titulo
     _postObject.when_user_update_title_and_content();
     // AND: guarda los cambios
-    _postObject.when_user_publish_post();
+    _postObject.when_user_publish_post(false);
 
     // THEN: el post fue editado
     _postObject.then_post_was_Edited();

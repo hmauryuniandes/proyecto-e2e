@@ -1,15 +1,17 @@
 export class Menu {
 
+  scenario = ''
+
+  constructor(scenario = '') {
+    this.scenario = scenario;
+  }
+
   get postLink() {
     return cy.get('li > a[href="#/posts/"]');
   } 
 
-  get settingsLink() {
-    return cy.get('div > a[href="#/settings/"]');
-  }
-  
   get generalLink() {
-    return cy.get('div > a[href="#/settings/general/"]');
+    return cy.get('li > a[href="#/settings/general/"]');
   }
 
   get codeInjectionLink() {
@@ -25,8 +27,7 @@ export class Menu {
   }
 
   get profileDropdown() {
-    return cy.get('.gh-nav-bottom > .flex.items-center.justify-between > .pe-all > div.pointer');
-    
+    return cy.get('.gh-nav-bottom > div > div > .ember-basic-dropdown-trigger');
   } 
 
   get logoutButton() {
@@ -45,71 +46,67 @@ export class Menu {
     return cy.get('li > a[href="#/pages/"]');
   }
 
-  scenario = ''
-
-  constructor(scenario = '') { 
-    this.scenario = scenario;
-  }
-
   when_user_navigate_to_posts = () => {
     this.postLink.click();
+    cy.screenshot(`${this.scenario}/navigate_to_post`);
   };
 
   when_user_expand_profile = () => {
     this.profileDropdown.click();
+    cy.screenshot(`${this.scenario}/navigate_to_profile`);
   };
 
   when_user_logout = () => {
     this.logoutButton.click();
+    cy.screenshot(`${this.scenario}/click_on_logout`);
   };
 
   when_user_click_profile = () => {
     this.profileButton.click();
-  };
-
-  when_user_navigate_to_settings = () => {
-    this.settingsLink.click();
+    cy.screenshot(`${this.scenario}/click_on_profile`);
   };
 
   when_user_navigate_to_general = () => {
     this.generalLink.click();
+    cy.screenshot(`${this.scenario}/navigate_to_general`);
   };
 
   when_user_navigate_to_code_injection = () => {
     this.codeInjectionLink.click();
+    cy.screenshot(`${this.scenario}/navigate_to_code_injection`);
   };
 
   when_user_navigate_to_site = () => {
     this.siteLink.click();
+    cy.screenshot(`${this.scenario}/navigate_to_site`);
   };
 
   when_user_navigate_to_staff = () => {
     this.staffLink.click();
+    cy.screenshot(`${this.scenario}/navigate_to_staff`);
   };
 
   when_user_navigate_to_tags = () => {
     this.tagLink.click();
+    cy.screenshot(`${this.scenario}/navigate_to_tags`);
   };
 
   when_user_navigate_to_pages = () => {
     this.pageLink.click();
-  };
-
-  when_user_navigate_to_pages = () => {
-    cy.get("section.gh-nav-body").within(() => {
-      cy.get('a[href="#/pages/"]').click();
-    });
+    cy.screenshot(`${this.scenario}/navigate_to_pages`);
   };
 
   when_user_navigate_to_config = () => {
     cy.get("section.gh-nav-body").within(() => {
       cy.get('a[href="#/settings/design/"]').click();
+      cy.screenshot(`${this.scenario}/navigate_to_config`);
     });
   }
 
   when_user_navigate_to_view_site = () => {
     cy.get("section.gh-nav-body").within(() => {
       cy.get('a[href="#/site/"]').click();
+      cy.screenshot(`${this.scenario}/navigate_to_view_site`);
     });
   };
 }
