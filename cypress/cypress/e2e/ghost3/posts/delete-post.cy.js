@@ -5,10 +5,10 @@ import { Post } from "./post";
 
 
 describe("Testing post creation", () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _postObject = new Post();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES005');
+  let _loginObject = new Login('ES005');
+  let _postObject = new Post('ES005');
+  let menuObject = new Menu('ES005');
 
   it("Test create new post", () => {
     // GIVEN: usuario autenticado

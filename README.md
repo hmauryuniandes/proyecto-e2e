@@ -11,6 +11,9 @@
 
     - Ghost versión 3.41.1, usar el siguiente comando para instalar dicha versión: 
         ghost install 3.41.1 --local --force
+
+    - Ghost versión 4.44.0: 
+        docker run -d -e url=http://localhost:3002 -p 3002:2368 --name ghost_4.44.0 ghost:4.44.0
         
     - Kraken-node versión 1.0.24
     
@@ -18,16 +21,29 @@
     
     - Cypress versión 12.9.0
 
-    - Tener creado un usuario y sitio en ghost 
+    - Tener creado un usuario y sitio en ambas versiones de ghost 
 
     - Ghost debe estar ejecutado
 
 ## Ejecución pruebas de regresión visual 
 
-    - abrir terminar 
-    - ingresar a la carpeta prueba_regresion_visual 
-    - correr el comando `node index.js`
-    - abrir en el navegador el archivo index.html generado dentro de la carpeta `results` y el folder con fecha mas reciente 
+    - Abrir terminal 
+    - Ingresar a la carpeta prueba_regresion_visual 
+    - Correr el comando `node index.js`
+    - Abrir en el navegador el archivo index.html generado dentro de la carpeta `results` y el folder con fecha mas reciente 
+
+## Los escenarios que fueron ajustados en cypress para ser ejecutados en la version 4.44.0 de ghost son: 
+
+    - ES002
+    - ES003
+    - ES005
+    - ES006
+    - ES007
+    - ES009
+    - ES012
+    - ES014
+    - ES018
+    - ES019
 
 ## Ejecución de Kraken:
 

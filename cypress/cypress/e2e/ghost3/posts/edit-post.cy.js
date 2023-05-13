@@ -5,10 +5,10 @@ import { Post } from "./post";
 
 
 describe("Testing post creation", () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _postObject = new Post();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES004');
+  let _loginObject = new Login('ES004');
+  let _postObject = new Post('ES004');
+  let menuObject = new Menu('ES004');
 
   afterEach(() => {
     _postObject.when_user_click_on_lastest_post();

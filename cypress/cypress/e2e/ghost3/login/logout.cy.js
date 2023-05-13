@@ -2,12 +2,10 @@ import { Menu } from "../menu/menu";
 import { Site } from "../site/site";
 import { Login } from "./login";
 
-const _url = "http://localhost:2368/ghost/#/signin";
-
 describe("Testing Ghost authentication", () => {
-  let _siteObject = new Site(_url);
-  let _loginObject = new Login();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES001');
+  let _loginObject = new Login('ES001');
+  let menuObject = new Menu('ES001');
 
   beforeEach(() => {
     Cypress.on('uncaught:exception', (err, runnable) => {
