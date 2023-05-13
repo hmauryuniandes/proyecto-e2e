@@ -43,5 +43,6 @@ describe('Testing General settings', () => {
 
     // THEN: el cambio fue guardado
     _staffObject.then_save_settings();
+    _menuObject.when_user_expand_profile();
   });
 });
