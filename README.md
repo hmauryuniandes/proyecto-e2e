@@ -27,7 +27,7 @@
     - abrir terminar 
     - ingresar a la carpeta prueba_regresion_visual 
     - correr el comando `node index.js`
-    - abrir la
+    - abrir en el navegador el archivo index.html generado dentro de la carpeta `results` y el folder con fecha mas reciente 
 
 ## Ejecución de Kraken:
 
@@ -36,7 +36,7 @@
     - en la carpeta kraken/feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt que desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
     - abrir la terminal
     - ingresar a la carpeta kraken
-    - iniciar el proyecto usando el comando **kraken-node run**.
+    - iniciar el proyecto usando el comando `kraken-node run`.
 
 ## Ejecucion de Cypress
     
@@ -45,7 +45,7 @@
     - abrir la terminal
     - ingresar a la carpeta cypress
     - correr el comando npm install si aun no lo ha hecho.
-    - iniciar proyecto usando el comando **cypress open**.
+    - iniciar proyecto usando el comando `cypress open`.
     - seleccionar pruebas E2E.
     - seleccionar navegador y ejecutar el navegador.
     - en el menú lateral seleccionar la opción specs, ahí vera todos los escenarios de pruebas.
