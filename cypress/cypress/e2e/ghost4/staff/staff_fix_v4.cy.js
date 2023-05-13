@@ -1,6 +1,6 @@
 import { Login } from "../login/login";
 import { Site } from "../site/site";
-import { Menu } from "../menu/menu_fix_v4";
+import { Menu } from "../menu/menu";
 import { Staff } from "./staff";
 
 describe('Testing General settings', () => {
