@@ -5,11 +5,11 @@ import { Tag } from "./tag";
 import { Post } from "../posts/post";
 
 describe("Testing assign tag to post", () => {
-  let _siteObject = new Site("http://localhost:2368/ghost/#/signin");
-  let _loginObject = new Login();
-  let _tagObject = new Tag();
-  let menuObject = new Menu();
-  let _postObject = new Post();
+  let _siteObject = new Site('ES012');
+  let _loginObject = new Login('ES012');
+  let _tagObject = new Tag('ES012');
+  let menuObject = new Menu('ES012');
+  let _postObject = new Post('ES012');
   let edslut = '';
   const tagPost = "Cypress tag post";
   const namePost = "post tag";

@@ -4,10 +4,10 @@ import { Site } from "../site/site";
 import { Tag } from "./tag";
 
 describe("Testing edit tag", () => {
-  let _siteObject = new Site("http://localhost:2368/ghost/#/signin");
-  let _loginObject = new Login();
-  let _tagObject = new Tag();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES010');
+  let _loginObject = new Login('ES010');
+  let _tagObject = new Tag('ES010');
+  let menuObject = new Menu('ES010');
   let edslut = '';
   const Tag2 = "Cypress tag ghost 2";
   const Tag3 = "Cypress tag ghost 3";

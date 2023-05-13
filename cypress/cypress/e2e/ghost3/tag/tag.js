@@ -28,23 +28,29 @@ export class Tag {
       //return cy.get('button').find('span').contains('Close');
     }
     
-    constructor() { 
+    scenario = ''
+
+    constructor(scenario = '') { 
       this.slug;
+      this.scenario = scenario;
     }
   
     when_user_click_on_new_tag = () => {
       this.newTagButton.click();
+      cy.screenshot(`${this.scenario}/click_new_tag`);
     };
   
     when_user_name_tag = (nameTag) => {
       this.tagNameInput
       .type(nameTag);
       cy.wait(500);
+      cy.screenshot(`${this.scenario}/name_tag`);
     };
   
     when_user_save_tag = () => {
       this.saveTag.click();
       cy.wait(500);
+      cy.screenshot(`${this.scenario}/save_tag`);
     };
   
     then_valida_titulo_tag = (nameTag) => {
@@ -53,6 +59,7 @@ export class Tag {
       ).then(($title) => {
         expect($title[0].innerText).to.equal(`Tags\n${nameTag}`);
       });
+      cy.screenshot(`${this.scenario}/valida_titulo_tag`);
     };
 
     when_retorna_slug = () => {
@@ -69,6 +76,7 @@ export class Tag {
       .find(`a[href="#/tags/${slugSel}/"]`)
       .contains(nameTag)
       .click({ retryOnStatusCodeFailure: true, retries: 3 });
+      cy.screenshot(`${this.scenario}/click_list_tag`);
     }; 
   
     when_user_delete_current_tag = () => {
@@ -76,10 +84,12 @@ export class Tag {
       cy.wait(500);
       this.deleteConfirmationButton.click();
       cy.wait(500);
+      cy.screenshot(`${this.scenario}/delete_tag`);
     };
 
     When_clear_name = () => {
       this.tagNameInput.invoke('val', '');
+      cy.screenshot(`${this.scenario}/clear_name`);
     };
 
     then_list_tag = (slugSel, nameTag) => {
@@ -87,6 +97,7 @@ export class Tag {
       cy.get('.tags-list > li.gh-tags-list-item')
       .find(`a[href="#/tags/${slugSel}/"]`)
       .should('not.exist');
+      cy.screenshot(`${this.scenario}/list_tag`);
     };
 
     when_user_assign_tag_post = (nameTag) => {
@@ -99,17 +110,20 @@ export class Tag {
       cy.get('#tag-input') // Hace click en el div padre para cerrar la lista desplegable
       .click();
       cy.contains('button', 'Close').focus().click();
+      cy.screenshot(`${this.scenario}/assign_tag`);
     };
 
     then_latest_post_was_edited = (post) => {
       cy.get('.posts-list > li.gh-posts-list-item > a > h3').then(titles => {
         expect(titles[0].innerText).to.equal(post);
       });
+      cy.screenshot(`${this.scenario}/post_edited`);
     };
 
     then_latest_page_was_edited = (page) => {
       cy.get('.gh-list > li.gh-posts-list-item > a > h3').then(titles => {
         expect(titles[0].innerText).to.equal(page);
+        cy.screenshot(`${this.scenario}/post_edited`);
       });
     };
   }

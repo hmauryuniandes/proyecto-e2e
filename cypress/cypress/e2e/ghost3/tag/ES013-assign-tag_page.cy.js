@@ -5,11 +5,11 @@ import { Tag } from "./tag";
 import { PageTag } from "./pagetag";
 
 describe("Testing assign tag to page", () => {
-  let _siteObject = new Site("http://localhost:2368/ghost/#/signin");
-  let _loginObject = new Login();
-  let _tagObject = new Tag();
-  let menuObject = new Menu();
-  let _pageObject = new PageTag();
+  let _siteObject = new Site('ES012');
+  let _loginObject = new Login('ES012');
+  let _tagObject = new Tag('ES012');
+  let menuObject = new Menu('ES012');
+  let _pageObject = new PageTag('ES012');
   let edslut = '';
   const tagPage = "Cypress tag page";
   const namePage = "page tag";

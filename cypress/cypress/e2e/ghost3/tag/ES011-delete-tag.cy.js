@@ -5,10 +5,10 @@ import { Tag } from "./tag";
 
 
 describe("Testing delete tag", () => {
-  let _siteObject = new Site("http://localhost:2368/ghost/#/signin");
-  let _loginObject = new Login();
-  let _tagObject = new Tag();
-  let menuObject = new Menu();
+  let _siteObject = new Site('ES011');
+  let _loginObject = new Login('ES011');
+  let _tagObject = new Tag('ES011');
+  let menuObject = new Menu('ES011');
   let edslut = '';
   const Tag4 = "Cypress tag ghost 4";
   
