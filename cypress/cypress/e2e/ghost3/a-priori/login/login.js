@@ -31,7 +31,7 @@ export class Login {
     this.username.clear().type(dataEmailCorrecto[0].email);
     this.password.clear().type(dataPasswordCorrecto[0].password);
     this.loginButton.click();
-    cy.wait(5000);
+    cy.wait(2000);
     cy.screenshot(`${this.scenario}/enter_credentials`);
   };
 
