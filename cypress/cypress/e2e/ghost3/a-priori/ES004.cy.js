@@ -4,10 +4,10 @@ import { Menu } from "../page-object/menu/menu";
 import { General } from "../page-object/general/general";
 
 describe('Testing General settings and type title and descripction blank', () => {
-  let _siteObject = new Site();
-  let _loginObject = new Login();
-  let _generalObject = new General();
-  let _menuObject = new Menu();
+  let _siteObject = new Site('ES004');
+  let _loginObject = new Login('ES004');
+  let _generalObject = new General('ES004');
+  let _menuObject = new Menu('ES004');
 
   afterEach(() => {
     _generalObject.when_user_reset_title_and_descripcion();

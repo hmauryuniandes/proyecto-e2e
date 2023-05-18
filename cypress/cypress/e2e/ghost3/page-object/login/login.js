@@ -1,8 +1,11 @@
+//Estrategia a priori
 const dataEmail = require("../../a-priori/data/email.json");
 const dataPassword = require("../../a-priori/data/password.json");
 const dataEmailCorrecto = require("../../a-priori/data/email_correcto.json");
 const dataPasswordCorrecto = require("../../a-priori/data/password_correcto.json");
 const retryText = "Retry";
+//Estrategia aleatorio
+import {faker} from '@faker-js/faker'
 
 export class Login {
 
@@ -53,6 +56,14 @@ export class Login {
       expect($error).to.not.be.undefined;
     });
     cy.screenshot(`${this.scenario}/show_invalid_login`);
+  };
+
+  when_user_enter_invalid_credentials_and_click_on_login_faker = () => {
+    this.username.type(faker.internet.email());
+    this.password.type(faker.internet.password());
+    this.loginButton.click();
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/click_on_login`);
   };
 
 }

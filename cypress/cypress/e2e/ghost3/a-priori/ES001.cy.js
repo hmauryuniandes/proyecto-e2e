@@ -1,4 +1,4 @@
-import { Site } from "./site/site";
+import { Site } from "../page-object/site/site";
 import { Login } from "../page-object/login/login";
 
 describe("Testing Ghost authentication credentials invalid and then credentials valid!", () => {
