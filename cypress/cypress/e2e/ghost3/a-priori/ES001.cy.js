@@ -1,5 +1,5 @@
 import { Site } from "./site/site";
-import { Login } from "../../page-object/login";
+import { Login } from "../page-object/login/login";
 
 describe("Testing Ghost authentication credentials invalid and then credentials valid!", () => {
   let _siteObject = new Site('ES001');

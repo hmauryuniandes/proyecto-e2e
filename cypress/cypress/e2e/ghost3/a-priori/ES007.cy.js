@@ -1,7 +1,7 @@
-import { Login } from "../login/login";
-import { Site } from "../site/site";
-import { Menu } from "../menu/menu";
-import { General } from "./general";
+import { Login } from "../page-object/login/login";
+import { Site } from "../page-object/site/site";
+import { Menu } from "../page-object/menu/menu";
+import { General } from "../page-object/general/general";
 
 describe('Testing General settings and type title and descripction blank', () => {
   let _siteObject = new Site();
@@ -24,7 +24,7 @@ describe('Testing General settings and type title and descripction blank', () =>
     // AND: usuario da click en el boton expand del titulo y la descripción
     _generalObject.when_user_click_on_expand_title_and_description();
     // AND: usuario ingresa el titulo y descripcion del blog
-    _generalObject.when_user_type_only_description();
+    _generalObject.when_user_type_title_and_descripcion();
     // AND: usuario guarda las configuraciones
     _generalObject.when_user_save_settings();
 

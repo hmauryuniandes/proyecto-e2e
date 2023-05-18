@@ -1,5 +1,5 @@
-const dataBlank = require("../data/field_blank.json");
-const dataTitleAndDescription = require("../data/title_and_description.json");
+const dataBlank = require("../../a-priori/data/field_blank.json");
+const dataTitleAndDescription = require("../../a-priori/data/title_and_description.json");
 
 export class General {
   oldTitle = "";

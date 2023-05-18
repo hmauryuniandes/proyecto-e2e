@@ -1,7 +1,7 @@
-const dataEmail = require("../data/email.json");
-const dataPassword = require("../data/password.json");
-const dataEmailCorrecto = require("../data/email_correcto.json");
-const dataPasswordCorrecto = require("../data/password_correcto.json");
+const dataEmail = require("../../a-priori/data/email.json");
+const dataPassword = require("../../a-priori/data/password.json");
+const dataEmailCorrecto = require("../../a-priori/data/email_correcto.json");
+const dataPasswordCorrecto = require("../../a-priori/data/password_correcto.json");
 const retryText = "Retry";
 
 export class Login {
