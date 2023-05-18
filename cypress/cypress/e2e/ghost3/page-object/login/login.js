@@ -66,4 +66,14 @@ export class Login {
     cy.screenshot(`${this.scenario}/click_on_login`);
   };
 
+  when_user_enter_credentials_and_click_on_login_static = () => {
+    let email = "f.alarconf@uniandes.edu.co";
+    let password = "fredy12345";
+    this.username.clear().type(email);
+    this.password.clear().type(password);
+    this.loginButton.click();
+    cy.wait(2000);
+    cy.screenshot(`${this.scenario}/enter_credentials`);
+  };
+
 }

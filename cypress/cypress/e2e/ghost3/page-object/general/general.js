@@ -1,5 +1,8 @@
+//Estrategia a priori
 const dataBlank = require("../../a-priori/data/field_blank.json");
 const dataTitleAndDescription = require("../../a-priori/data/title_and_description.json");
+//Estrategia aleatorio
+import {faker} from '@faker-js/faker'
 
 export class General {
   oldTitle = "";
@@ -225,6 +228,98 @@ export class General {
       ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
     ).then(($inputs) => {
       cy.wrap($inputs[1]).clear().type(dataTitleAndDescription[index].description, { force: true });
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_title_and_descripcion`);
+  };
+
+  when_user_type_only_title_faker = () => {
+    cy.window().then((win) => {
+      this.oldTitle = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[0].value;
+    });
+    cy.window().then((win) => {
+      this.oldDescription = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[1].value;
+    });
+
+    cy.get(
+      ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+    ).then(($inputs) => {
+      cy.wrap($inputs[0]).clear().type(faker.commerce.department(), { force: true });
+    });
+    cy.window().then((win) => {
+      this.newTitle = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[0].value;
+    });
+
+    cy.get(
+      ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+    ).then(($inputs) => {
+      cy.wrap($inputs[1]).clear();
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_title_and_descripcion`);
+  };
+
+  when_user_type_only_description_faker = () => {
+    cy.window().then((win) => {
+      this.oldTitle = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[0].value;
+    });
+    cy.window().then((win) => {
+      this.oldDescription = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[1].value;
+    });
+    cy.get(
+      ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+    ).then(($inputs) => {
+      cy.wrap($inputs[0]).clear();
+    });
+    cy.window().then((win) => {
+      this.newTitle = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[0].value;
+    });
+    cy.get(
+      ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+    ).then(($inputs) => {
+      cy.wrap($inputs[1]).clear().type(faker.commerce.productDescription(), { force: true });
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_title_and_descripcion`);
+  };
+
+  when_user_type_title_and_descripcion_faker = () => {
+    cy.window().then((win) => {
+      this.oldTitle = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[0].value;
+    });
+    cy.window().then((win) => {
+      this.oldDescription = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[1].value;
+    });
+    cy.get(
+      ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+    ).then(($inputs) => {
+      cy.wrap($inputs[0]).clear().type(faker.commerce.department(), { force: true });
+    });
+    cy.window().then((win) => {
+      this.newTitle = win.document.querySelectorAll(
+        ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+      )[0].value;
+    });
+    cy.get(
+      ".gh-setting-content-extended > .form-group.ember-view > .ember-text-field.gh-input.ember-view"
+    ).then(($inputs) => {
+      cy.wrap($inputs[1]).clear().type(faker.commerce.productDescription(), { force: true });
     });
     cy.wait(1000);
     cy.screenshot(`${this.scenario}/type_title_and_descripcion`);
