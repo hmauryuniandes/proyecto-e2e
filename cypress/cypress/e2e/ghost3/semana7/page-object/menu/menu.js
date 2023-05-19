@@ -72,6 +72,7 @@ export class Menu {
   };
 
   when_user_navigate_to_code_injection = () => {
+    cy.wait(1000);
     this.codeInjectionLink.click();
     cy.screenshot(`${this.scenario}/navigate_to_code_injection`);
   };
