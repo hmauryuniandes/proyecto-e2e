@@ -1,6 +1,7 @@
 {
     "USERNAME1": "hmaury1@gmail.com",
-    "PASSWORD1": "Hola123456*#",
+    "PASSWORD1": "Hola123456*#",	
+    "URL": "http://localhost:2368/ghost",
     "INVALID_USERNAME": "xxx@xxx.com",
     "INVALID_PASSWORD": "123",
     "TAG1": "Tag ghost",
