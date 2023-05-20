@@ -5,16 +5,16 @@ import { Post } from "../page-object/post/post";
 
 
 describe("Testing post creation", () => {
-  let _siteObject = new Site('ES061');
-  let _loginObject = new Login('ES061');
-  let _postObject = new Post('ES061');
-  let menuObject = new Menu('ES061');
+  let _siteObject = new Site('ES063');
+  let _loginObject = new Login('ES063');
+  let _postObject = new Post('ES063');
+  let menuObject = new Menu('ES063');
 
   afterEach(() => {
     _postObject.when_user_delete_current_post();
   });
 
-  it("Test create new post", () => {
+  it("Test create new post and schedule it", () => {
     // GIVEN: usuario autenticado
     _siteObject.given_user_visit_ghost();
     _loginObject.when_user_enter_credentials_and_click_on_login();
@@ -25,10 +25,10 @@ describe("Testing post creation", () => {
     _postObject.when_user_click_on_new_post();
     // AND: usuario ingresa el titulo y contenido del post
     _postObject.when_user_type_title_and_content_a_priori();
-    // AND: usuario publica el post
-    _postObject.when_user_publish_post();
+    // AND: usuario schedule el post
+    _postObject.when_user_schedule_post_a_priori();
 
     // THEN: el post fue publicado
-    _postObject.then_post_was_published();
+    _postObject.then_post_was_scheduled();
   });
 });

@@ -5,10 +5,10 @@ import { Post } from "../page-object/post/post";
 
 
 describe("Testing post creation", () => {
-  let _siteObject = new Site('ES061');
-  let _loginObject = new Login('ES061');
-  let _postObject = new Post('ES061');
-  let menuObject = new Menu('ES061');
+  let _siteObject = new Site('ES067');
+  let _loginObject = new Login('ES067');
+  let _postObject = new Post('ES067');
+  let menuObject = new Menu('ES067');
 
   afterEach(() => {
     _postObject.when_user_delete_current_post();
@@ -25,6 +25,8 @@ describe("Testing post creation", () => {
     _postObject.when_user_click_on_new_post();
     // AND: usuario ingresa el titulo y contenido del post
     _postObject.when_user_type_title_and_content_a_priori();
+    // AND: usuario agrega una imagen
+    _postObject.when_user_add_embed_url();
     // AND: usuario publica el post
     _postObject.when_user_publish_post();
 

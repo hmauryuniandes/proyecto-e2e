@@ -2,13 +2,37 @@ import { Login } from "../page-object/login/login";
 import { Menu } from "../page-object/menu/menu";
 import { Site } from "../page-object/site/site";
 import { Post } from "../page-object/post/post";
-
+import { faker } from "@faker-js/faker";
 
 describe("Testing post creation", () => {
-  let _siteObject = new Site('ES061');
-  let _loginObject = new Login('ES061');
-  let _postObject = new Post('ES061');
-  let menuObject = new Menu('ES061');
+  let _siteObject = new Site('ES077');
+  let _loginObject = new Login('ES077');
+  let _postObject = new Post('ES077');
+  let menuObject = new Menu('ES077');
+  
+  beforeEach(() => {
+    // Generacion de un pool de datos dinamicos y reemplazando los datos a priori:
+    const data = [];
+    for (let index = 0; index < 1000; index++) {
+      data.push({
+        title: faker.lorem.words(3),
+        description: faker.lorem.words(7),
+      });
+    }
+    _postObject.DATA_A_PRIORI = data;
+
+    const dates = [];
+    for (let index = 0; index < 1000; index++) {
+      dates.push({ date: faker.date.future().toISOString().split('T')[0] });
+    }
+    _postObject.DATES_A_PRIORI = dates;
+
+    const urls = [];
+    for (let index = 0; index < 1000; index++) {
+      urls.push({ url: faker.internet.url() });
+    }
+    _postObject.URLS_A_PRIORI = urls;
+  });
 
   afterEach(() => {
     _postObject.when_user_delete_current_post();
@@ -25,6 +49,8 @@ describe("Testing post creation", () => {
     _postObject.when_user_click_on_new_post();
     // AND: usuario ingresa el titulo y contenido del post
     _postObject.when_user_type_title_and_content_a_priori();
+    // AND: usuario agrega una imagen
+    _postObject.when_user_add_embed_url();
     // AND: usuario publica el post
     _postObject.when_user_publish_post();
 

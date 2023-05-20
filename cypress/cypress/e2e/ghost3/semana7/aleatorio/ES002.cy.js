@@ -16,7 +16,7 @@ describe("Testing Ghost authentication credentials invalid and then credentials 
     _loginObject.then_show_invalid_message_and_show_retry();
 
     // WHEN: usuario ingresa credenciales y da click en el boton login
-    _loginObject.when_user_enter_credentials_and_click_on_login_static();
+    _loginObject.when_user_enter_credentials_and_click_on_login();
 
     // THEN: usuario es redireccionado al panel del sitio y se muestra el titulo del sitio
     _siteObject.then_user_is_redirected_to_site_portal();
