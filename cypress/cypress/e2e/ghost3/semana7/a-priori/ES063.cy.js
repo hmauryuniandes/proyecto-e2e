@@ -10,9 +10,9 @@ describe("Testing post creation", () => {
   let _postObject = new Post('ES063');
   let menuObject = new Menu('ES063');
 
-  // afterEach(() => {
-  //   _postObject.when_user_delete_current_post();
-  // });
+  afterEach(() => {
+    _postObject.when_user_delete_current_post();
+  });
 
   it("Test create new post and schedule it", () => {
     // GIVEN: usuario autenticado
