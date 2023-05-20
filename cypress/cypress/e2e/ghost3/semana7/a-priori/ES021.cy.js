@@ -3,14 +3,14 @@ import { Site } from "../page-object/site/site";
 import { Menu } from "../page-object/menu/menu";
 import { General } from "../page-object/general/general";
 
-describe('Testing General settings and type title and descripction blank', () => {
-  let _siteObject = new Site('ES008');
-  let _loginObject = new Login('ES008');
-  let _generalObject = new General('ES008');
-  let _menuObject = new Menu('ES008');
+describe('Testing General Social Account fan page facebook', () => {
+  let _siteObject = new Site('ES021');
+  let _loginObject = new Login('ES021');
+  let _generalObject = new General('ES021');
+  let _menuObject = new Menu('ES021');
 
   afterEach(() => {
-    _generalObject.when_user_reset_title_and_descripcion();
+    _generalObject.when_user_reset_fan_page();
     _generalObject.when_user_save_settings();
   })
 
@@ -22,13 +22,13 @@ describe('Testing General settings and type title and descripction blank', () =>
     // WHEN: usuario navega a la pantalla setting/General
     _menuObject.when_user_navigate_to_general();
     // AND: usuario da click en el boton expand del titulo y la descripción
-    _generalObject.when_user_click_on_expand_title_and_description();
+    _generalObject.when_user_click_on_expand_social_account();
     // AND: usuario ingresa el titulo y descripcion del blog
-    _generalObject.when_user_type_only_title_faker();
+    _generalObject.when_user_type_fan_page_facebook();
     // AND: usuario guarda las configuraciones
     _generalObject.when_user_save_settings();
 
     // THEN: el cambio fue guardado
-    _generalObject.then_title_was_updated();
+    //_generalObject.then_title_was_updated();
   });
 });

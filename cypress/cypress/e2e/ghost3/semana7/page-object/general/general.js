@@ -1,8 +1,10 @@
 //Estrategia a priori
 const dataBlank = require("../../a-priori/data/field_blank.json");
 const dataTitleAndDescription = require("../../a-priori/data/title_and_description.json");
+const dataUserNameFacebook = require("../../a-priori/data/username_facebook.json");
+const dataUserNameTwitter = require("../../a-priori/data/username_twitter.json");
 //Estrategia aleatorio
-import {faker} from '@faker-js/faker'
+import { faker } from '@faker-js/faker'
 
 export class General {
   oldTitle = "";
@@ -11,13 +13,19 @@ export class General {
   oldDescription = "";
   newDescription = "";
 
+  oldFanPage = "";
+  newFanPage = "";
+
+  oldPageTwitter = "";
+  newPageTwitter = "";
+
   get saveButton() {
     return cy.get(".gh-canvas-header > .view-actions > button");
   }
 
   scenario = ''
 
-  constructor(scenario = '') { 
+  constructor(scenario = '') {
     this.scenario = scenario;
   }
 
@@ -323,6 +331,107 @@ export class General {
     });
     cy.wait(1000);
     cy.screenshot(`${this.scenario}/type_title_and_descripcion`);
+  };
+
+  when_user_click_on_expand_social_account = () => {
+    cy.get(".gh-setting-action > button").then(
+      (buttons) => {
+        buttons[9].click();
+      }
+    );
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/click_on_expand_social_account`);
+  };
+
+  when_user_type_fan_page_facebook = () => {
+    let index = this.getIndexRandom(1, 1000);
+    cy.window().then((win) => {
+      this.oldFanPage = win.document.querySelectorAll('.form-group.ember-view > input')[0].value
+    });
+    cy.get('.form-group.ember-view > input').then(($inputs) => {
+      cy.wrap($inputs[0]).clear().type(dataUserNameFacebook[index].profile_facebook, { force: true });
+    });
+    cy.window().then((win) => {
+      this.newFanPage = win.document.querySelectorAll('.form-group.ember-view > input')[0].value;
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_fan_page_facebook`);
+  };
+
+  when_user_reset_fan_page = () => {
+    cy.get('.form-group.ember-view > input').then(($inputs) => {
+      cy.wrap($inputs[0]).clear().type(this.oldFanPage, { force: true });
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/reset_fan_page`);
+  };
+
+  when_user_type_fan_page_facebook_faker = () => {
+    let urlBase = 'https://www.facebook.com/';
+    cy.window().then((win) => {
+      this.oldFanPage = win.document.querySelectorAll('.form-group.ember-view > input')[0].value
+    });
+    cy.get('.form-group.ember-view > input').then(($inputs) => {
+      cy.wrap($inputs[0]).clear().type(urlBase+faker.lorem.slug(), { force: true });
+    });
+    cy.window().then((win) => {
+      this.newFanPage = win.document.querySelectorAll('.form-group.ember-view > input')[0].value;
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_fan_page_facebook`);
+  };
+
+  when_user_type_page_twitter = () => {
+    let index = this.getIndexRandom(1, 1000);
+    cy.window().then((win) => {
+      this.oldPageTwitter = win.document.querySelectorAll('.form-group.ember-view > input')[1].value
+    });
+    cy.get('.form-group.ember-view > input').then(($inputs) => {
+      cy.wrap($inputs[1]).clear().type(dataUserNameTwitter[index].profile_twitter, { force: true });
+    });
+    cy.window().then((win) => {
+      this.newPageTwitter = win.document.querySelectorAll('.form-group.ember-view > input')[1].value;
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_fan_page_facebook`);
+  };
+
+  when_user_reset_page_twitter = () => {
+    cy.get('.form-group.ember-view > input').then(($inputs) => {
+      cy.wrap($inputs[1]).clear().type(this.oldPageTwitter, { force: true });
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/reset_page_twitter`);
+  };
+
+  when_user_type_page_twitter_faker = () => {
+    let urlBase = 'https://twitter.com/';
+    cy.window().then((win) => {
+      this.oldPageTwitter = win.document.querySelectorAll('.form-group.ember-view > input')[1].value
+    });
+    cy.get('.form-group.ember-view > input').then(($inputs) => {
+      cy.wrap($inputs[1]).clear().type(urlBase+faker.internet.userName(), { force: true });
+    });
+    cy.window().then((win) => {
+      this.newPageTwitter = win.document.querySelectorAll('.form-group.ember-view > input')[1].value;
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_fan_page_facebook`);
+  };
+
+  when_user_type_page_twitter_faker_negativo = () => {
+    let urlBase = 'https://twitter.com/';
+    cy.window().then((win) => {
+      this.oldPageTwitter = win.document.querySelectorAll('.form-group.ember-view > input')[1].value
+    });
+    cy.get('.form-group.ember-view > input').then(($inputs) => {
+      cy.wrap($inputs[1]).clear().type(urlBase+faker.lorem.slug(), { force: true });
+    });
+    cy.window().then((win) => {
+      this.newPageTwitter = win.document.querySelectorAll('.form-group.ember-view > input')[1].value;
+    });
+    cy.wait(1000);
+    cy.screenshot(`${this.scenario}/type_fan_page_facebook`);
   };
 
 }
