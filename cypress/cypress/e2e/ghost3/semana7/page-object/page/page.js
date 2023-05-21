@@ -369,8 +369,8 @@ export class Page {
   };
 
   when_edit_the_publication_time_of_a_page_random = () => {
-    let horas = faker.random.number({min: 22,max: 23});
-    let minutos = faker.random.number({min: 10,max: 59});
+    let horas = faker.datatype.number({min: 22,max: 23});
+    let minutos = faker.datatype.number({min: 10,max: 59});
     cy.get('a[title="Edit this page"]:eq(0)').click();
     cy.wait(100);
     cy.get("div.gh-publishmenu-trigger").click();
@@ -388,8 +388,8 @@ export class Page {
   };
 
   when_bad_edit_the_publication_time_of_a_page_random = () => {
-    let horas = faker.random.number({min: 24,max: 300});
-    let minutos = faker.random.number({min: 60,max: 300});
+    let horas = faker.datatype.number({min: 24,max: 300});
+    let minutos = faker.datatype.number({min: 60,max: 300});
     cy.get('a[title="Edit this page"]:eq(0)').click();
     cy.wait(100);
     cy.get("div.gh-publishmenu-trigger").click();
