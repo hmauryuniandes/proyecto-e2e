@@ -11,9 +11,6 @@
 
     - Ghost versión 3.41.1, usar el siguiente comando para instalar dicha versión: 
         ghost install 3.41.1 --local --force
-
-    - Ghost versión 4.44.0: 
-        docker run -d -e url=http://localhost:3002 -p 3002:2368 --name ghost_4.44.0 ghost:4.44.0
         
     - Kraken-node versión 1.0.24
     
@@ -21,86 +18,43 @@
     
     - Cypress versión 12.9.0
 
-    - Tener creado un usuario y sitio en ambas versiones de ghost 
+    - Tener creado un usuario y sitio en ghost 
 
     - Ghost debe estar ejecutado
 
-## Ejecución pruebas de regresión visual 
-
-    - Abrir terminal 
-    - Ingresar a la carpeta prueba_regresion_visual 
-    - Correr el comando `node index.js`
-    - Abrir en el navegador el archivo index.html generado dentro de la carpeta `results` y el folder con fecha mas reciente 
-
-## Los escenarios que fueron ajustados en cypress para ser ejecutados en la version 4.44.0 de ghost son: 
-
-    - ES002
-    - ES003
-    - ES005
-    - ES006
-    - ES007
-    - ES009
-    - ES012
-    - ES014
-    - ES018
-    - ES019
-
-## Ejecución de Kraken:
-
-    - editar el archivo kraken/properties.json
-    - configure los valores de USERNAME1 y PASSWORD1 con las credenciales de ghost validas.
-    - en la carpeta kraken/feature/escenarios encontrara los archivos txt para cada escenario de pruebas, copie y pegue el contenido del txt que desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
-    - abrir la terminal
-    - ingresar a la carpeta kraken
-    - iniciar el proyecto usando el comando `kraken-node run`.
 
 ## Ejecucion de Cypress
     
-    - edite el archivo cypress/cypress/e2e/ghost/login/login.js
+    - edite el archivo cypress\cypress\e2e\ghost3\semana7\a-priori\data\login_correcto.json usando sus credenciales de acceso a Ghost
     - cambie los valores de las constantes username y password con las credenciales de ghost validas.
+    - de ser necesario edite el puerto que utiliza Ghost, por defecto esta en 2368. Puede editarlo en la linea 2 del archivo cypress\cypress\e2e\ghost3\semana7\page-object\site\site.js
     - abrir la terminal
     - ingresar a la carpeta cypress
     - correr el comando npm install si aun no lo ha hecho.
     - iniciar proyecto usando el comando `cypress open`.
+    - en caso de no tener el proyecto agregado, usar la ruta: ./cypress 
     - seleccionar pruebas E2E.
     - seleccionar navegador y ejecutar el navegador.
-    - en el menú lateral seleccionar la opción specs, ahí vera todos los escenarios de pruebas.
-    - ejecute uno a uno los escenarios.
+    - en el menú lateral seleccionar la opción specs, dirijase a la carpeta cypress\e2e\ghost3\semana7, allí encontrá 3 carpeta con cada una de las estrategias trabajadas: a priori, aleatorios y dinamicos (pseudo aleatorios).
+    - ejecute uno a uno los escenarios dentro de las 3 carpetas.
 
-## Escenarios de prueba
+## Estrategias usadas
 
-### Login
-    - ES001: login fallido y exitoso.
-    - ES002: login, navegación y logout.
+### A priori
 
-### Posts
-    - ES003: Crear post y publicar un post.
-    - ES004: Editar un post despues de crealo y publicarlo.
-    - ES005: Eliminar post despues de crealo y publicarlo.
-   
-## Pages 
-    - ES006: Crear page y publicar una page.
-    - ES007: Editar Page después de haberla creado.
-    - ES008: Eliminar Page después de haberla creado.
+Usando la herramienta Mockaroo se generaron los datos en lsitas guardadas en archivos json, estos archivos fueron importados en las clases de page-object de cada funcionalidad. Estos archivos se pueden encontrar en cypress\cypress\e2e\ghost3\semana7\a-priori\data.
+Para la ejecucion de las pruebas se selecciona de manera aleatoria el indice para extraer los datos desde los archivos .json 
 
-### Tags
-    - ES009: Navegar en el menú a tags y luego crear un tag.
-    - ES010: Editar un tag después de crearlo.
-    - ES011: Eliminar un tag después de crearlo.
-    - ES012: Asignar un tag a un post después de crearlos.
-    - ES013: Asignar un tag a un Page después de crearlos.
+### Dinamico (Pseudo Aleatorio)
 
-### General
-    - ES014: Navegar a General y cambiar title/description del sitio para luego visualizar el cambio.
-    - ES015: Modificar archivo de icon del sitio.
-    - ES016: Modificar archivo de logo del sitio. 
+En el beforeAll de cada escenario de pruebas se generarón datos usando faker.js, dichos datos fueron generados con la misma estructura de los .json para usar estos durante la ejecucion de las pruebas en vez de los datos a priori.
 
-### Code injection
-    - ES017: Aplicar estilos en el header y footer del html para luego visualizar el cambio en el sitio.
+### Aleatorios
 
-### Profile 
-    - ES018: Editar profile, cambia nombre del usuario y validar que hayas sido cambiado.
+Usando Faker se generan datos de manera aleatoria para cada uno de los valores en el momento en que son requeridos en el escenario de pruebas.
 
-### configuración/Diseño 
-    - ES019: Configurar un nuevo elemento de menu con una página nueva y probar navegación en el sitio para el nuevo elemento.
-    - ES020: Configurar un nuevo elemento de menu secundario con una página nueva y probar navegación en el sitio para el nuevo elemento.
+## Descripcion de los escenarios
+
+En la siguiente pagina, dentro de la wiki, encontrará la lsita de los escenarios con su correspondiente estrategia de generacion de datos de prueba:
+https://github.com/hmauryuniandes/proyecto-e2e/wiki/Escenarios-con-estrategias-de-generaci%C3%B3n-de-datos
+
