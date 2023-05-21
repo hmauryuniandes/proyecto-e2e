@@ -477,3 +477,4 @@ When('I click on last plus', async function() {
     let element = await this.driver.$$('button.gh-blognav-add');
     return await element[element.length-1].click();
 });
+

@@ -1,8 +1,7 @@
 //Estrategia a priori
 const dataEmail = require("../../a-priori/data/email.json");
 const dataPassword = require("../../a-priori/data/password.json");
-const dataEmailCorrecto = require("../../a-priori/data/email_correcto.json");
-const dataPasswordCorrecto = require("../../a-priori/data/password_correcto.json");
+const dataLogin = require("../../a-priori/data/login_correcto.json");
 const retryText = "Retry";
 //Estrategia aleatorio
 import {faker} from '@faker-js/faker'
@@ -31,8 +30,8 @@ export class Login {
   }
 
   when_user_enter_credentials_and_click_on_login = () => {
-    this.username.clear().type(dataEmailCorrecto[0].email);
-    this.password.clear().type(dataPasswordCorrecto[0].password);
+    this.username.clear().type(dataLogin[0].email);
+    this.password.clear().type(dataLogin[0].password);
     this.loginButton.click();
     cy.wait(2000);
     cy.screenshot(`${this.scenario}/enter_credentials`);
@@ -64,16 +63,6 @@ export class Login {
     this.loginButton.click();
     cy.wait(1000);
     cy.screenshot(`${this.scenario}/click_on_login`);
-  };
-
-  when_user_enter_credentials_and_click_on_login_static = () => {
-    let email = "f.alarconf@uniandes.edu.co";
-    let password = "fredy12345";
-    this.username.clear().type(email);
-    this.password.clear().type(password);
-    this.loginButton.click();
-    cy.wait(2000);
-    cy.screenshot(`${this.scenario}/enter_credentials`);
   };
 
 }
