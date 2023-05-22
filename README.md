@@ -1,13 +1,13 @@
-# proyecto-e2e
+# Proyecto-e2e
 
-## integrantes: 
+## Integrantes: 
 
     - Monica Alejandra Muñoz Beltran (ma.munozb1@uniandes.edu.co)
     - Humberto Enrique Maury Maury (h.maury@uniandes.edu.co)
     - Daniel Santiago Rondon Cardenas (ds.rondon@uniandes.edu.co)
     - Fredy Antonio Alarcon Fonseca (f.alarconf@uniandes.edu.co)
 
-## prerrequisitos
+## Prerrequisitos
 
     - Ghost versión 3.41.1, usar el siguiente comando para instalar dicha versión: 
         ghost install 3.41.1 --local --force
@@ -25,18 +25,27 @@
 
 ## Ejecucion de Cypress
     
-    - edite el archivo cypress\cypress\e2e\ghost3\semana7\a-priori\data\login_correcto.json usando sus credenciales de acceso a Ghost
-    - cambie los valores de las constantes username y password con las credenciales de ghost validas.
-    - de ser necesario edite el puerto que utiliza Ghost, por defecto esta en 2368. Puede editarlo en la linea 2 del archivo cypress\cypress\e2e\ghost3\semana7\page-object\site\site.js
-    - abrir la terminal
-    - ingresar a la carpeta cypress
-    - correr el comando npm install si aun no lo ha hecho.
-    - iniciar proyecto usando el comando `cypress open`.
-    - en caso de no tener el proyecto agregado, usar la ruta: ./cypress 
-    - seleccionar pruebas E2E.
-    - seleccionar navegador y ejecutar el navegador.
-    - en el menú lateral seleccionar la opción specs, dirijase a la carpeta cypress\e2e\ghost3\semana7, allí encontrá 3 carpeta con cada una de las estrategias trabajadas: a priori, aleatorios y dinamicos (pseudo aleatorios).
-    - ejecute uno a uno los escenarios dentro de las 3 carpetas.
+    - Edite el archivo cypress\cypress\e2e\ghost3\semana7\a-priori\data\login_correcto.json usando sus credenciales de acceso a Ghost
+    - Cambie los valores de las constantes username y password con las credenciales de ghost validas.
+    - De ser necesario edite el puerto que utiliza Ghost, por defecto esta en 2368. Puede editarlo en la linea 2 del archivo cypress\cypress\e2e\ghost3\semana7\page-object\site\site.js
+    - Abrir la terminal
+    - Ingresar a la carpeta cypress
+    - Correr el comando npm install si aun no lo ha hecho.
+    - Iniciar proyecto usando el comando `cypress open`.
+    - En caso de no tener el proyecto agregado, usar la ruta: ./cypress 
+    - Seleccionar pruebas E2E.
+    - Seleccionar navegador y ejecutar el navegador.
+    - En el menú lateral seleccionar la opción specs, dirijase a la carpeta cypress\e2e\ghost3\semana7, allí encontrá 3 carpeta con cada una de las estrategias trabajadas: a priori, aleatorios y dinamicos (pseudo aleatorios).
+    - Ejecute uno a uno los escenarios dentro de las 3 carpetas.
+
+## Ejecución de Kraken:
+    - Editar el archivo kraken/properties.json
+    - Configure los valores de USERNAME1 y PASSWORD1 con las credenciales de ghost validas.
+    - De ser necesario edite el puerto que utiliza Ghost, por defecto esta en 2368. Puede editarlo en el valor URL en el archivo kraken/properties.json 
+    - En la carpeta kraken/feature/escenarios_semana7 encontrara los archivos txt para cada escenario de pruebas (encontrará 5 escenarios), copie y pegue el contenido del txt que desee ejecutar dentro del archivo my_first.feature dejando las lineas de codigo ahi presente.
+    - Abrir la terminal
+    - Ingresar a la carpeta kraken
+    - Iniciar el proyecto usando el comando `kraken-node run`.
 
 ## Estrategias usadas
 
@@ -52,6 +61,7 @@ En el beforeAll de cada escenario de pruebas se generarón datos usando faker.js
 ### Aleatorios
 
 Usando Faker se generan datos de manera aleatoria para cada uno de los valores en el momento en que son requeridos en el escenario de pruebas.
+Para los escenarios realizados en Kraken se usó el generador de cadenas falsas gracias al paquete NPM @faker-js/faker,   
 
 ## Descripcion de los escenarios
 
