@@ -61,7 +61,7 @@ En el beforeAll de cada escenario de pruebas se generarón datos usando faker.js
 ### Aleatorios
 
 Usando Faker se generan datos de manera aleatoria para cada uno de los valores en el momento en que son requeridos en el escenario de pruebas.
-Para los escenarios realizados en Kraken se usó el generador de cadenas falsas gracias al paquete NPM @faker-js/faker,   
+Para los escenarios realizados en Kraken se usó el generador de cadenas falsas gracias al paquete NPM @faker-js/faker, en los archivos .feature se encuentra la declaración de la cadena falsa como por ejemplo $name_1 o $string_1.   
 
 ## Descripcion de los escenarios
 
